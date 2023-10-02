@@ -1,9 +1,9 @@
 <?php
-    class  M_mahasiswa extends CI_Model 
+    class  M_karyawan extends CI_Model 
         {
             public function tampil_data()
                 {
-                    return $this->db->get('tb_mahasiswa');
+                    return $this->db->get('tb_karyawan');
                 }
 
             public function get_data($limit, $start, $keyword = null)
@@ -18,7 +18,7 @@
                         $this->db->or_like('alamat', $keyword) ;
                         $this->db->or_like('email', $keyword) ;
                     }
-                    return $this->db->get('tb_mahasiswa', $limit, $start)->result_array() ;
+                    return $this->db->get('tb_karyawan', $limit, $start)->result_array() ;
                 }
 
             function input_data($data,$table)
@@ -45,14 +45,14 @@
 
             public function detail_data($id = NULL)
                 {
-                    $query = $this->db->get_where('tb_mahasiswa', array('id' => $id))->row();
+                    $query = $this->db->get_where('tb_karyawan', array('id' => $id))->row();
                     return $query ;
                 }
 
             public function get_keyword($keyword)
                 {
                     $this->db->select('*') ;
-                    $this->db->from('tb_mahasiswa') ;
+                    $this->db->from('tb_karyawan') ;
                     
                     $this->db->like('nama_mhs', $keyword) ;
                     $this->db->or_like('asal_kampus', $keyword) ;

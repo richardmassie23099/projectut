@@ -137,10 +137,10 @@ INSERT INTO `tb_hydrant` (`id`, `tanggal`, `no_hydrant`, `lokasi`, `kondisi_hose
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_mahasiswa`
+-- Table structure for table `tb_karyawan`
 --
 
-CREATE TABLE `tb_mahasiswa` (
+CREATE TABLE `tb_karyawan` (
   `id` int(11) NOT NULL,
   `nama_mhs` varchar(100) NOT NULL,
   `asal_kampus` varchar(100) NOT NULL,
@@ -153,10 +153,10 @@ CREATE TABLE `tb_mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_mahasiswa`
+-- Dumping data for table `tb_karyawan`
 --
 
-INSERT INTO `tb_mahasiswa` (`id`, `nama_mhs`, `asal_kampus`, `jurusan`, `masuk_pkl`, `keluar_pkl`, `no_telp`, `alamat`, `email`) VALUES
+INSERT INTO `tb_karyawan` (`id`, `nama_mhs`, `asal_kampus`, `jurusan`, `masuk_pkl`, `keluar_pkl`, `no_telp`, `alamat`, `email`) VALUES
 (1, 'Kefas Oswald Mokorimban', 'STMIK Profesional Makassar', 'Sistem Informasi (SI)', '2022-04-04', '2022-06-04', '087771220505', 'JL. Lasuloro dlm III No. 68 Blok IV, Perumnas Antang', 'kefas.oswald5@gmail.com'),
 (2, 'Herwana .R', 'STMIK Profesional Makassar', 'Sistem Informasi (SI)', '2022-04-04', '2022-06-04', '085256338448', 'JL. Pampang IV', 'Herwana.anha@gmail.com'),
 (3, 'Richard Noah Massie', 'STMIK Profesional Makassar', 'Sistem Informasi (SI)', '2023-01-27', '0000-00-00', '08', 'Jl. Bangau', 'uybs@mail.com');
@@ -365,9 +365,9 @@ ALTER TABLE `tb_hydrant`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_mahasiswa`
+-- Indexes for table `tb_karyawan`
 --
-ALTER TABLE `tb_mahasiswa`
+ALTER TABLE `tb_karyawan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -441,9 +441,9 @@ ALTER TABLE `tb_hydrant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_mahasiswa`
+-- AUTO_INCREMENT for table `tb_karyawan`
 --
-ALTER TABLE `tb_mahasiswa`
+ALTER TABLE `tb_karyawan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --

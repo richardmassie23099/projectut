@@ -5,12 +5,12 @@
                             <h3>DATA MAGANG/PKL</h3>
                         </div>
                         <div class="col-12 col-md-12 order-md-2 order-last">
-                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                            <!-- <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?php echo base_url() ?>adm/dashesr">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Magang - PKL</li>
                                 </ol>
-                            </nav>
+                            </nav> -->
                         </div>
                     </div>
                 </div><hr>
@@ -26,7 +26,7 @@
                                         <i class="bi bi-plus"></i> Tambahkan Data
                                     </button>
                                 <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                    <a class="btn btn-success btn-sm" href="<?php echo base_url('mahasiswa/print_mahasiswa') ?>" role="button">
+                                    <a class="btn btn-success btn-sm" href="<?php echo base_url('karyawan/print_mahasiswa') ?>" role="button">
                                         <i class="bi bi-printer"></i> Print Laporan
                                     </a>
                                 <?php } ?>
@@ -34,7 +34,7 @@
                                     
                                 <!-- <div class="row">
                                     <div class="col-md">
-                                        <form action="<?php echo base_url('mahasiswa/index') ; ?>" method="POST">
+                                        <form action="<?php echo base_url('karyawan/index') ; ?>" method="POST">
                                             <div class="input-group mb-3">
                                             <input class="form-control form-control-sm" type="search" name="keyword" placeholder="Search. . ." aria-label="Search" autocomplete="off">
                                                 <div class="input-group-append">
@@ -63,27 +63,27 @@
                                         </thead>
 
                                         <tbody>
-                                            <?php foreach ($mahasiswa as $mhs) : ?>
+                                            <?php foreach ($karyawan as $kry) : ?>
                                                 <tr>
                                                     <td><?php echo ++$start ?></td>
-                                                    <td><?php echo $mhs['nama_mhs'] ?></td>
-                                                    <td><?php echo $mhs['asal_kampus'] ?></td>
-                                                    <td><?php echo $mhs['jurusan'] ?></td>
-                                                    <td><?php echo $mhs['masuk_pkl'] ?></td>
-                                                    <td><?php echo $mhs['keluar_pkl'] ?></td>
+                                                    <td><?php echo $kry['nama_mhs'] ?></td>
+                                                    <td><?php echo $kry['asal_kampus'] ?></td>
+                                                    <td><?php echo $kry['jurusan'] ?></td>
+                                                    <td><?php echo $kry['masuk_pkl'] ?></td>
+                                                    <td><?php echo $kry['keluar_pkl'] ?></td>
                                                     <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                                        <td><?php echo $mhs['no_telp'] ?></td>
+                                                        <td><?php echo $kry['no_telp'] ?></td>
                                                     <?php } ?>
-                                                        <td><?php echo anchor('mahasiswa/detail_mahasiswa/'.$mhs['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                                        <td><?php echo anchor('karyawan/detail_mahasiswa/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
                                                     <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                                        <td><?php echo anchor('mahasiswa/edit_mahasiswa/'.$mhs['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
-                                                        <td onclick="javascript: return confirm('Anda Yakin Untuk Meng - HAPUS Data Ini ?')"><?php echo anchor('mahasiswa/hapus/'.$mhs['id'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                                        <td><?php echo anchor('karyawan/edit_mahasiswa/'.$kry['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                                        <td onclick="javascript: return confirm('Anda Yakin Untuk Meng - HAPUS Data Ini ?')"><?php echo anchor('karyawan/hapus/'.$kry['id'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
                                                     <?php } ?>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
                                         
-                                        <?php if (empty($mahasiswa)) : ?>
+                                        <?php if (empty($karyawan)) : ?>
                                             <tr>
                                                 <td colspan="12">
                                                     <div class="alert alert-primary" role="alert"><center>
@@ -117,7 +117,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <?php echo form_open_multipart('mahasiswa/tambah_aksi') ; ?>
+                            <?php echo form_open_multipart('karyawan/tambah_aksi') ; ?>
                                 <div class="form-group">
                                     <label>Nama Mahasiswa</label>
                                     <input type="text" name="nama_mhs" class="form-control">

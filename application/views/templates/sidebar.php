@@ -26,48 +26,34 @@
                         
                         <li class="sidebar-item <?= activate_menu('dashboard') ?>">
                             <!-- <a href="<?php echo base_url() ?>dashboard/index" class='sidebar-link'> -->
-                            <a href="<?php echo site_url() ?>login/logout" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
+                            <a href="<?php echo site_url() ?>login" class='sidebar-link'>
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                <span>Login</span>
                             </a>
                         </li>
 
                         <li class="sidebar-title"><u>Menu</u></li>
 
-                        <li class="sidebar-item <?= activate_menu('adm') ?>">
-                            <a href="<?php echo base_url() ?>adm/index" class='sidebar-link'>
+                        <li class="sidebar-item <?= activate_menu('karyawan') ?>">
+                            <a href="<?php echo base_url() ?>karyawan/index" class='sidebar-link'>
                                 <i class="bi bi-person-lines-fill"></i>
-                                <span>Administration (ADM)</span>
+                                <span>Data Karyawan</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item <?= activate_menu('service') ?>">
                             <a href="index-svc.html" class='sidebar-link'>
                                 <i class="bi bi-car-front-fill"></i>
-                                <span>Service (SVC)</span>
+                                <span>Data Asset</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a href="index-parts.html" class='sidebar-link'>
                                 <i class="bi bi-tools"></i>
-                                <span>Spareparts (PARTS)</span>
+                                <span>Data Arsip</span>
                             </a>
-                        </li>
-                        
-                        <li class="sidebar-item">
-                            <a href="index-tc.html" class='sidebar-link'>
-                                <i class="bi bi-people-fill"></i>
-                                <span>Training Center (TC)</span>
-                            </a>
-                        </li>
-                        
-                        <li class="sidebar-item">
-                            <a href="index-bc.html" class='sidebar-link'>
-                                <i class="bi bi-briefcase-fill"></i>
-                                <span>Business Consultant (BC)</span>
-                            </a>
-                        </li>
+                        </li>                        
                         
                         <!-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>

@@ -26,7 +26,7 @@
                     'is_login' => true,
                 ) ;
                 $this->session->set_userdata($data_user) ;
-                redirect('adm') ;
+                redirect('dashboard') ;
                 exit ;
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show swalDefaultError" role="alert">

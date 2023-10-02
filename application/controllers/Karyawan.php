@@ -1,5 +1,5 @@
 <?php
-    class Mahasiswa extends CI_Controller
+    class Karyawan extends CI_Controller
         {
 
             
@@ -11,7 +11,7 @@
                     redirect('login') ;
                 }
 
-                $this->load->model('m_bbm') ;
+                $this->load->model('m_karyawan') ;
             }
 
             public function index()
@@ -23,7 +23,7 @@
                     $data['keyword'] = $this->session->userdata('keyword') ;
                 }
                 
-                $config['base_url']     = 'http://localhost/bbm_ut/mahasiswa/index' ;
+                $config['base_url']     = 'http://localhost/bbm_ut/karyawan/index' ;
                 $this->db->like('nama_mhs', $data['keyword']) ;
                 $this->db->or_like('asal_kampus', $data['keyword']) ;
                 $this->db->or_like('jurusan', $data['keyword']) ;
@@ -32,7 +32,7 @@
                 $this->db->or_like('no_telp', $data['keyword']) ;
                 $this->db->or_like('alamat', $data['keyword']) ;
                 $this->db->or_like('email', $data['keyword']) ;
-                $this->db->from('tb_mahasiswa') ;
+                $this->db->from('tb_karyawan') ;
                 $config['total_rows']   = $this->db->count_all_results() ;
                 $data['total_rows'] = $config['total_rows'] ;
                 $config['per_page']     = 20 ;
@@ -68,12 +68,12 @@
                 $this->pagination->initialize($config) ;
 
                 $data['start'] = $this->uri->segment(3) ;
-                $data['mahasiswa'] = $this->m_mahasiswa->get_data($config["per_page"], $data['start'], $data['keyword']) ;
+                $data['karyawan'] = $this->m_karyawan->get_data($config["per_page"], $data['start'], $data['keyword']) ;
 
-                $this->load->view('adm/esr/temp-esr/header');
-                $this->load->view('adm/esr/temp-esr/sidebar');
+                $this->load->view('adm/templates/header');
+                $this->load->view('adm/templates/sidebar');
                 $this->load->view('esr-mhs', $data);
-                $this->load->view('adm/esr/temp-esr/footer');
+                $this->load->view('adm/templates/footer');
 
             }
             public function tambah_aksi(){
@@ -97,32 +97,32 @@
                     'no_telp'       => $no_telp,
                 );
 
-                $this->m_mahasiswa->input_data($data,'tb_mahasiswa');
+                $this->m_karyawan->input_data($data,'tb_karyawan');
                     $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - TAMBAHKAN
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                redirect ('mahasiswa/index');
+                redirect ('karyawan/index');
             }
 
             public function hapus($id)
                 {
                     $where = array ('id' => $id) ;
-                    $this->m_mahasiswa->hapus_data($where, 'tb_mahasiswa') ;
+                    $this->m_karyawan->hapus_data($where, 'tb_karyawan') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - HAPUS (DELETE)
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    redirect ('mahasiswa/index') ;
+                    redirect ('karyawan/index') ;
                 }
 
             public function edit_mahasiswa($id)
                 {
                     $where = array ('id' => $id) ;
-                    $data['mahasiswa'] = $this->m_mahasiswa->edit_data($where, 'tb_mahasiswa')->result() ;
+                    $data['karyawan'] = $this->m_karyawan->edit_data($where, 'tb_karyawan')->result() ;
 
-                    $this->load->view('adm/esr/temp-esr/header');
-                    $this->load->view('adm/esr/temp-esr/sidebar');
+                    $this->load->view('adm/templates/header');
+                    $this->load->view('adm/templates/sidebar');
                     $this->load->view('edit_mahasiswa', $data);
-                    $this->load->view('adm/esr/temp-esr/footer');
+                    $this->load->view('adm/templates/footer');
                 }
 
             public function update()
@@ -152,7 +152,7 @@
                         'id' => $id 
                     ) ;
                     
-                    $this->m_mahasiswa->update_data($where, $data, 'tb_mahasiswa') ;
+                    $this->m_karyawan->update_data($where, $data, 'tb_karyawan') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
                     <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - PERBAHARUI (UPDATE)
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
@@ -161,30 +161,30 @@
             
             public function detail_mahasiswa($id)
                 {
-                    $this->load->model('m_mahasiswa') ;
-                    $detail = $this->m_mahasiswa->detail_data($id) ;
+                    $this->load->model('m_karyawan') ;
+                    $detail = $this->m_karyawan->detail_data($id) ;
                     $data['detail_mahasiswa'] = $detail ;
 
-                    $this->load->view('adm/esr/temp-esr/header');
-                    $this->load->view('adm/esr/temp-esr/sidebar');
-                    $this->load->view('detail_mahasiswa', $data);
-                    $this->load->view('adm/esr/temp-esr/footer');
+                    $this->load->view('adm/templates/header');
+                    $this->load->view('adm/templates/sidebar');
+                    $this->load->view('adm/detail/detail_mahasiswa', $data);
+                    $this->load->view('adm/templates/footer');
                 }
 
             public function print_mahasiswa()
                 {
-                    $data['mahasiswa'] = $this->m_mahasiswa->tampil_data('tb_mahasiswa')->result() ;
-                    $this->load->view('adm/esr/print/print_mahasiswa', $data);
+                    $data['karyawan'] = $this->m_karyawan->tampil_data('tb_karyawan')->result() ;
+                    $this->load->view('adm/print/print_mahasiswa', $data);
                 }
 
             public function search()
                 {
                     $keyword = $this->input->post('keyword') ;
-                    $data['mahasiswa']=$this->m_mahasiswa->get_keyword($keyword) ;
+                    $data['karyawan']=$this->m_karyawan->get_keyword($keyword) ;
 
-                    $this->load->view('adm/esr/temp-esr/header');
-                    $this->load->view('adm/esr/temp-esr/sidebar');
-                    $this->load->view('mahasiswa', $data);
-                    $this->load->view('adm/esr/temp-esr/footer');
+                    $this->load->view('adm/templates/header');
+                    $this->load->view('adm/templates/sidebar');
+                    $this->load->view('karyawan', $data);
+                    $this->load->view('adm/templates/footer');
                 }
         }

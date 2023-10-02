@@ -36,12 +36,12 @@
 
             <div class="col-6 col-lg-4 col-md-6">
                 <div class="card">
-                    <a href="<?php echo base_url() ?>adm/index">
+                    <a href="<?php echo base_url() ?>karyawan/index">
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                 <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-adm.png" width="70px">
-                                <h5 class="font-extrabold  mt-2">ADM</h5>
+                                <h5 class="font-extrabold  mt-2">DATA KARYAWAN</h5>
                             </div>
                         </div>
                     </div>
@@ -49,21 +49,24 @@
                 </div>
             </div>
 
+            <?php if ($_SESSION['hak_akses'] == 'ASSET'  or $_SESSION['hak_akses'] == 'A') { ?>
             <div class="col-6 col-lg-4 col-md-6">
                 <div class="card">
-                    <a href="<?php echo base_url() ?>svc/index">
+                    <a href="<?php echo base_url() ?>bbm/index">
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                 <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-svc.png" width="70px">
-                                <h5 class="font-extrabold  mt-2">SVC</h5>
+                                <h5 class="font-extrabold  mt-2">DATA ASSET</h5>
                             </div>
                         </div>
                     </div>
                     </a>
                 </div>
-            </div>
+            </div>                            
+            <?php } ?>
 
+            <?php if ($_SESSION['hak_akses'] == 'ARSIP'  or $_SESSION['hak_akses'] == 'A') { ?>
             <div class="col-6 col-lg-4 col-md-6">
                 <div class="card">
                     <a href="index-parts.html">
@@ -71,43 +74,14 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
                                 <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-parts.png" width="70px">
-                                <h5 class="font-extrabold  mt-2">PARTS</h5>
+                                <h5 class="font-extrabold  mt-2">DATA ARSIP</h5>
                             </div>
                         </div>
                     </div>
                     </a>
                 </div>
             </div>
-
-            <div class="col-6 col-lg-4 col-md-6">
-                <div class="card">
-                    <a href="index-tc.html">
-                    <div class="card-body px-1 py-1-1">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
-                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-tc.png" width="70px">
-                                <h5 class="font-extrabold mt-2">TC</h5>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-6 col-lg-4 col-md-6">
-                <div class="card">
-                    <a href="index-bc.html">
-                    <div class="card-body px-1 py-1-1">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
-                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-bc.png" width="70px">
-                                <h5 class="font-extrabold  mt-2">BC</h5>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-            </div>
+            <?php } ?>
 
             <!-- <div class="col-6 col-lg-4 col-md-6">
                 <div class="card">

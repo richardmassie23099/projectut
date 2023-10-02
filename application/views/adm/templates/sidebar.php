@@ -23,57 +23,29 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         
+                        <li class="sidebar-title"><u>Menu</u></li>
+
+                        <li class="sidebar-item <?= activate_menu('karyawan') ?>">
+                            <a href="<?php echo base_url() ?>karyawan/index" class='sidebar-link'>
+                                <i class="bi bi-person-lines-fill"></i>
+                                <span>Data Karyawan</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item <?= activate_menu('service') ?>">
+                            <a href="index-svc.html" class='sidebar-link'>
+                                <i class="bi bi-car-front-fill"></i>
+                                <span>Data Asset</span>
+                            </a>
+                        </li>
+
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url() ?>index.php/adm" class='sidebar-link'>
-                                <i class="bi bi-house-fill"></i>
-                                <span>Beranda</span>
+                            <a href="index-parts.html" class='sidebar-link'>
+                                <i class="bi bi-tools"></i>
+                                <span>Data Arsip</span>
                             </a>
                         </li>
                         
-                        <li class="sidebar-item">
-                            <a href="<?php echo base_url() ?>adm/dashesr" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-title"><u>Menu</u></li>
-
-                        <li class="sidebar-item <?= activate_menu('bbm') ?>">
-                            <a href="<?php echo base_url() ?>bbm/index" class='sidebar-link'>
-                                <i class="bi bi-fuel-pump-fill"></i>
-                                <span>BBM</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item <?= activate_menu('mahasiswa') ?>">
-                            <a href="<?php echo base_url() ?>mahasiswa/index" class='sidebar-link'>
-                                <i class="bi bi-people-fill"></i>
-                                <span>Magang/PKL</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item <?= activate_menu('apar') ?>">
-                            <a href="<?php echo base_url() ?>apar/index" class='sidebar-link'>
-                                <i class="bi bi-fire"></i>
-                                <span>Alat Pemadam Api Ringan (APAR)</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item <?= activate_menu('hydrant') ?>">
-                            <a href="<?php echo base_url() ?>hydrant/index" class='sidebar-link'>
-                                <i class="bi bi-fire"></i>
-                                <span>Hydrant</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item <?= activate_menu('helm') ?>">
-                            <a href="<?php echo base_url() ?>helm/index" class='sidebar-link'>
-                                <i class="bi bi-tools"></i>
-                                <span>Helm Safety</span>
-                            </a>
-                        </li>
-
                         <li class="sidebar-item  has-sub <?= activate_menu('medik') ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-list"></i>
@@ -82,22 +54,7 @@
                             <ul class="submenu ">
                                 <li class="submenu-item <?= activate_menu('medik') ?>">
                                     <a href="<?php echo base_url() ?>medik/index">Kendaraan A2B</a>
-                                </li>
-                                <li class="submenu-item <?= activate_menu('medik3') ?>">
-                                    <a href="<?php echo base_url() ?>medik3/index">Portable FAK (2-5 Orang)</a>
-                                </li>
-                                <li class="submenu-item <?= activate_menu('medik2') ?>">
-                                    <a href="<?php echo base_url() ?>medik2/index">Portable FAK (5-10 Orang)</a>
-                                </li>
-                                <li class="submenu-item <?= activate_menu('medik4') ?>">
-                                    <a href="<?php echo base_url() ?>medik4/index">Area Resiko Basah</a>
-                                </li>
-                                <li class="submenu-item <?= activate_menu('medik5') ?>">
-                                    <a href="<?php echo base_url() ?>medik5/index">Medic/Rescuer</a>
-                                </li>
-                                <li class="submenu-item <?= activate_menu('medik6') ?>">
-                                    <a href="<?php echo base_url() ?>medik6/index">Gedung</a>
-                                </li>
+                                </li>                               
                             </ul>
                         </li>                        
 

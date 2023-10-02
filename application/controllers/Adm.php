@@ -8,7 +8,7 @@ class Adm extends CI_Controller {
                 if ($this->session->userdata('is_login') != true) {
                     redirect('login') ;
                 }
-                $this->load->model('m_apar') ;
+                $this->load->model('m_karyawan') ;
             }
 
     public function index () 
@@ -21,18 +21,6 @@ class Adm extends CI_Controller {
     public function dashesr () 
         {
             $this->load->view('dash-esr');
-        }
-    public function dashga () 
-        {
-            $this->load->view('dash-ga');
-        }
-    public function dashkasir () 
-        {
-            $this->load->view('dash-kasir');
-        }
-    public function dashpst () 
-        {
-            $this->load->view('dash-pst');
         }
 
 }
