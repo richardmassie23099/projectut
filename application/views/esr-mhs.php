@@ -2,7 +2,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-12 order-md-1 order-first">
-                            <h3>DATA MAGANG/PKL</h3>
+                            <h3>DATA KARYAWAN</h3>
                         </div>
                         <div class="col-12 col-md-12 order-md-2 order-last">
                             <!-- <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
