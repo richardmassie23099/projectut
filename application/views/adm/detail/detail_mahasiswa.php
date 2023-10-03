@@ -5,42 +5,42 @@
         <br> </center>
         <table class="table">  
             <tr>
-                <th>Nama Mahasiswa PKL</th>
+                <th>NRP</th>
                 <td><?php echo $detail_mahasiswa->nama_mhs ?></td>
             </tr>
 
             <tr>
-                <th>Asal Kampus Mahasiswa</th>
+                <th>Nama Karyawan</th>
                     <td><?php echo $detail_mahasiswa->asal_kampus ?></td>
             </tr>
 
             <tr>
-                <th>Jurusan</th>
+                <th>Company</th>
                     <td><?php echo $detail_mahasiswa->jurusan ?></td>
             </tr>
 
             <tr>
-                <th>Tanggal Masuk PKL</th>
+                <th>Lokasi</th>
                     <td><?php echo $detail_mahasiswa->masuk_pkl ?></td>
             </tr>
 
             <tr>
-                <th>Tanggal Keluar PKL</th>
+                <th>Departement</th>
                     <td><?php echo $detail_mahasiswa->keluar_pkl ?></td>
             </tr>
 
             <tr>
-                <th>Nomor Telephone ( HP )</th>
+                <th>Posisi</th>
                     <td><?php echo $detail_mahasiswa->no_telp ?></td>
             </tr>
 
             <tr>
-                <th>Alamat Mahasiswa PKL</th>
+                <th>Tempat lahir</th>
                     <td><?php echo $detail_mahasiswa->alamat ?></td>
             </tr>
             
             <tr>
-                <th>E-mail Mahasiswa PKL</th>
+                <th>Tanggal lahir</th>
                     <td><?php echo $detail_mahasiswa->email ?></td>
             </tr>
 

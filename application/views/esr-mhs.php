@@ -50,14 +50,16 @@
                                         <thead>
                                             <tr class="table-secondary">
                                                 <th class="text-center" style="width: 10px">No.</th>
-                                                <th class="text-center">Nama Mahasiswa</th>
-                                                <th class="text-center">Asal Kampus</th>
-                                                <th class="text-center">Jurusan / Prodi</th>
-                                                <th class="text-center">Masuk</th>
+                                                <th class="text-center">NRP</th>
+                                                <th class="text-center">NAMA KARYAWAN</th>
+                                                <th class="text-center">COMPANY</th>
+                                                <th class="text-center">LOKASI</th>
+                                                <th class="text-center">DEPARTEMENT</th>
+                                                
                                                 <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
                                                     <th class="text-center">No Telp</th>
                                                 <?php } ?>
-                                                <th class="text-center">Keluar</th>
+                                               
                                                 <th class="text-center" colspan="3">Action</th>
                                             </tr>
                                         </thead>
@@ -119,45 +121,60 @@
                         <div class="modal-body">
                             <?php echo form_open_multipart('karyawan/tambah_aksi') ; ?>
                                 <div class="form-group">
-                                    <label>Nama Mahasiswa</label>
+                                    <label>NRP</label>
                                     <input type="text" name="nama_mhs" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Asal Kampus</label>
-                                    <input type="text" name="asal_kampus" class="form-control">
+                                    <label>Nama karyawan</label>
+                                    <input type="text" name="nama_karyawan" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Jurusan</label>
-                                    <input type="text" name="jurusan" class="form-control">
+                                    <label>Company</label>
+                                    <input type="text" name="company" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Tanggal Masuk PKL</label>
-                                    <input type="date" name="masuk_pkl" class="form-control">
+                                    <label>Lokasi</label>
+                                    <input type="date" name="lokasi" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Tanggal Keluar PKL</label>
-                                    <input type="date" name="keluar_pkl" class="form-control">
+                                    <label>Departement</label>
+                                    <input type="date" name="departement" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Nomor Telphone ( HP )</label>
-                                    <input type="text" name="no_telp" class="form-control">
+                                    <label>Posisi</label>
+                                    <input type="text" name="posisi" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Alamat Mahasiswa</label>
-                                    <input type="text" name="alamat" class="form-control">
+                                    <label>Tempat lahir</label>
+                                    <input type="text" name="tempat_lahir" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>E-mail Mahasiswa</label>
-                                    <input type="text" name="email" class="form-control">
+                                    <label>Tanggal lahir</label>
+                                    <input type="text" name="tanggal_lahir" class="form-control">
                                 </div>
 
+                                <div class="form-group">
+                                    <label>Status keluarga</label>
+                                    <input type="text" name="status_keluarga" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Jumlah anak</label>
+                                    <input type="text" name="jumlah_anak" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>tanggal mulai bekerja</label>
+                                    <input type="text" name="tanggal_bekerja" class="form-control">
+                                </div>
+ 
                                 <div class="modal-footer">
                                     <button type="RESET" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Reset</button>
                                     <button type="SUBMIT" class="btn btn-sm btn-primary">Save</button>
