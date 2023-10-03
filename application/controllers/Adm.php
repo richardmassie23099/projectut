@@ -6,7 +6,7 @@ class Adm extends CI_Controller {
             {
                 parent::__construct() ;
                 if ($this->session->userdata('is_login') != true) {
-                    redirect('login') ;
+                    redirect('dashboard') ;
                 }
                 $this->load->model('m_karyawan') ;
             }
@@ -17,10 +17,6 @@ class Adm extends CI_Controller {
             $this->load->view('templates/sidebar');
             $this->load->view('adm-view');
             $this->load->view('templates/footer');
-        }
-    public function dashesr () 
-        {
-            $this->load->view('dash-esr');
         }
 
 }
