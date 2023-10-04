@@ -137,12 +137,20 @@
 
                                 <div class="form-group">
                                     <label>Lokasi</label>
-                                    <input type="date" name="lokasi" class="form-control">
+                                    <input type="text" name="lokasi" class="form-control">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Departement</label>
-                                    <input type="date" name="departement" class="form-control">
+                                    <!-- <input type="text" name="departement" class="form-control"> -->
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option value="1">ADM</option>
+                                        <option value="2">SVC</option>
+                                        <option value="3">PRT</option>
+                                        <option value="4">SOD-TSO</option>
+                                        <!-- <option value="5">five</option> -->
+                                    </select>
+
                                 </div>
 
                                 <div class="form-group">
@@ -157,22 +165,39 @@
 
                                 <div class="form-group">
                                     <label>Tanggal lahir</label>
-                                    <input type="text" name="tanggal_lahir" class="form-control">
+                                    <input type="date" name="tanggal_lahir" class="form-control">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Status keluarga</label>
-                                    <input type="text" name="status_keluarga" class="form-control">
+                                    <!-- <input type="text" name="status_keluarga" class="form-control"> -->
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">Menikah</option>
+                                        <option value="2">Belum menikah</option>
+                                        <!-- <option value="3">Three</option> -->
+                                    </select>
+
                                 </div>
 
                                 <div class="form-group">
                                     <label>Jumlah anak</label>
-                                    <input type="text" name="jumlah_anak" class="form-control">
+                                    <!-- <input type="text" name="jumlah_anak" class="form-control"> -->
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <!-- <option value="7">seven</option> -->
+                                    </select>
+
                                 </div>
 
                                 <div class="form-group">
-                                    <label>tanggal mulai bekerja</label>
-                                    <input type="text" name="tanggal_bekerja" class="form-control">
+                                    <label>Tanggal mulai bekerja</label>
+                                    <input type="date" name="tanggal_bekerja" class="form-control">
                                 </div>
  
                                 <div class="modal-footer">

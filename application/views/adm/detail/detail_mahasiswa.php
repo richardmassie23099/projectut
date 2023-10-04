@@ -44,6 +44,21 @@
                     <td><?php echo $detail_mahasiswa->email ?></td>
             </tr>
 
+            <tr>
+                <th>Status keluarga</th>
+                    <td><?php echo $detail_mahasiswa->email ?></td>
+            </tr>
+
+            <tr>
+                <th>Jumlah anak</th>
+                    <td><?php echo $detail_mahasiswa->email ?></td>
+            </tr>
+
+            <tr>
+                <th>Tanggal mulai bekerja</th>
+                    <td><?php echo $detail_mahasiswa->email ?></td>
+            </tr>
+
         </table><br>
         <center>
         <a href="<?php echo base_url('mahasiswa/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>
