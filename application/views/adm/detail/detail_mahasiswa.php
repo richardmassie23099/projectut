@@ -59,6 +59,11 @@
                     <td><?php echo $detail_mahasiswa->email ?></td>
             </tr>
 
+            <tr>
+                <th>FOTO</th>
+                    <td><?php echo $detail_mahasiswa->email ?></td>
+            </tr>
+
         </table><br>
         <center>
         <a href="<?php echo base_url('mahasiswa/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>

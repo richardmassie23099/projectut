@@ -144,6 +144,7 @@
                                     <label>Departement</label>
                                     <!-- <input type="text" name="departement" class="form-control"> -->
                                     <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
                                         <option value="1">ADM</option>
                                         <option value="2">SVC</option>
                                         <option value="3">PRT</option>
@@ -184,6 +185,7 @@
                                     <label>Jumlah anak</label>
                                     <!-- <input type="text" name="jumlah_anak" class="form-control"> -->
                                     <select class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
