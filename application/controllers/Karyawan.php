@@ -121,7 +121,7 @@
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('edit_mahasiswa', $data);
+                    $this->load->view('adm/edit/edit_mahasiswa', $data);
                     $this->load->view('adm/templates/footer');
                 }
 

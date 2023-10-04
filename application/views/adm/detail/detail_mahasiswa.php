@@ -46,6 +46,6 @@
 
         </table><br>
         <center>
-        <a href="<?php echo base_url('mahasiswa/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>
+        <a href="<?php echo base_url('karyawan/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>
     </section>
 </div>

@@ -59,7 +59,7 @@
                                                 <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
                                                     <th class="text-center">No Telp</th>
                                                 <?php } ?>
-                                               
+
                                                 <th class="text-center" colspan="3">Action</th>
                                             </tr>
                                         </thead>
@@ -162,8 +162,14 @@
 
                                 <div class="form-group">
                                     <label>Status keluarga</label>
-                                    <input type="text" name="status_keluarga" class="form-control">
-                                </div>
+                                    <!-- <input type="text" name="status_keluarga" class="form-control"> -->
+                                    <select class="form-select" aria-label="Option Select">
+                                        <option selected disabled>Open this select menu</option>
+                                        <option value="1">Menikah</option>
+                                        <option value="2">Belum menikah</option>
+                                        <!-- <option value="3">Three</option> -->
+                                    </select>
+                                </div>                          
 
                                 <div class="form-group">
                                     <label>Jumlah anak</label>
