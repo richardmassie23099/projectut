@@ -1,5 +1,5 @@
 <?php
-    class Karyawan extends CI_Controller
+    class Asset extends CI_Controller
         {
 
             
@@ -11,7 +11,7 @@
                     redirect('login') ;
                 }
 
-                $this->load->model('m_karyawan') ;
+                $this->load->model('m_asset') ;
             }
 
             public function index()
@@ -23,7 +23,7 @@
                     $data['keyword'] = $this->session->userdata('keyword') ;
                 }
                 
-                $config['base_url']     = 'http://localhost/bbm_ut/karyawan/index' ;
+                $config['base_url']     = 'http://localhost/bbm_ut/asset/index' ;
                 // $this->db->like('nama_mhs', $data['keyword']) ;
                 // $this->db->or_like('asal_kampus', $data['keyword']) ;
                 // $this->db->or_like('jurusan', $data['keyword']) ;
@@ -32,7 +32,7 @@
                 // $this->db->or_like('no_telp', $data['keyword']) ;
                 // $this->db->or_like('alamat', $data['keyword']) ;
                 // $this->db->or_like('email', $data['keyword']) ;
-                $this->db->from('tb_karyawan') ;
+                $this->db->from('tb_asset') ;
                 $config['total_rows']   = $this->db->count_all_results() ;
                 $data['total_rows'] = $config['total_rows'] ;
                 $config['per_page']     = 20 ;
@@ -68,134 +68,143 @@
                 $this->pagination->initialize($config) ;
 
                 $data['start'] = $this->uri->segment(3) ;
-                $data['karyawan'] = $this->m_karyawan->get_data($config["per_page"], $data['start'], $data['keyword']) ;
+                $data['asset'] = $this->m_asset->get_data($config["per_page"], $data['start'], $data['keyword']) ;
 
                 $this->load->view('adm/templates/header');
                 $this->load->view('adm/templates/sidebar');
-                $this->load->view('esr-karyawan', $data);
+                $this->load->view('esr-asset', $data);
                 $this->load->view('adm/templates/footer');
 
             }
             public function tambah_aksi(){
-                $nrp                    = $this->input->post('nrp');
-                $nama_karyawan          = $this->input->post('nama_karyawan');
-                $company                = $this->input->post('company');
-                $lokasi                 = $this->input->post('lokasi');
-                $departement            = $this->input->post('departement');
-                $posisi                 = $this->input->post('posisi');
-                $tempat_lahir           = $this->input->post('tempat_lahir');
-                $tanggal_lahir          = $this->input->post('tanggal_lahir');
-                $status_keluarga        = $this->input->post('status_keluarga');
-                $jumlah_anak            = $this->input->post('jumlah_anak');
-                $tanggal_mulai_bekerja  = $this->input->post('tanggal_mulai_bekerja');
+                $no_asset          = $this->input->post('no_asset');
+                $class             = $this->input->post('class');
+                $cap_date          = $this->input->post('cap_date');
+                $deskripsi         = $this->input->post('deskripsi');
+                $lokasi            = $this->input->post('lokasi');
+                $deskripsi_lokasi  = $this->input->post('deskripsi_lokasi');
+                $acq_value         = $this->input->post('acq_value');
+                $dep_value         = $this->input->post('dep_value');
+                $book_value        = $this->input->post('book_value');
+                $kondisi           = $this->input->post('kondisi');
+                $utilisasi         = $this->input->post('utilisasi');
+                $hilang            = $this->input->post('hilang');
+                $keterangan        = $this->input->post('keterangan');
 
                 $data = array(
-                    'nrp'                         => $nrp,
-                    'nama_karyawan'               => $nama_karyawan,
-                    'company'                     => $company,
-                    'lokasi'                      => $lokasi,
-                    'departement'                 => $departement,
-                    'posisi'                      => $posisi,
-                    'tempat_lahir'                => $tempat_lahir,
-                    'tanggal_lahir'               => $tanggal_lahir,
-                    'status_keluarga'             => $status_keluarga,
-                    'jumlah_anak'                 => $jumlah_anak,
-                    'tanggal_mulai_bekerja'       => $tanggal_mulai_bekerja,
+                    'no_asset'         => $no_asset,
+                    'class'            => $class,
+                    'cap_date'         => $cap_date,
+                    'deskripsi'        => $deskripsi,
+                    'lokasi'           => $lokasi,
+                    'deskripsi_lokasi' => $deskripsi_lokasi,
+                    'acq_value'        => $acq_value,
+                    'dep_value'        => $dep_value,
+                    'book_value'       => $book_value,
+                    'kondisi'          => $kondisi,
+                    'utilisasi'        => $utilisasi,
+                    'hilang'           => $hilang,
+                    'keterangan'       => $keterangan,
                 );
 
-                $this->m_karyawan->input_data($data,'tb_karyawan');
+                $this->m_asset->input_data($data,'tb_asset');
                     $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Selamat !! </strong> Data Karyawan Berhasil Di - TAMBAHKAN
+                        <strong>Selamat !! </strong> Data asset Berhasil Di - TAMBAHKAN
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                redirect ('karyawan/index');
+                redirect ('asset/index');
             }
 
             public function hapus($id)
                 {
                     $where = array ('id' => $id) ;
-                    $this->m_karyawan->hapus_data($where, 'tb_karyawan') ;
+                    $this->m_asset->hapus_data($where, 'tb_asset') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - HAPUS (DELETE)
+                    <strong>Selamat !! </strong> Data asset Berhasil Di - HAPUS (DELETE)
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    redirect ('karyawan/index') ;
+                    redirect ('asset/index') ;
                 }
 
-            public function edit_mahasiswa($id)
+            public function edit_asset($id)
                 {
                     $where = array ('id' => $id) ;
-                    $data['karyawan'] = $this->m_karyawan->edit_data($where, 'tb_karyawan')->result() ;
+                    $data['asset'] = $this->m_asset->edit_data($where, 'tb_asset')->result() ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('edit_mahasiswa', $data);
+                    $this->load->view('adm/edit/edit_asset', $data);
                     $this->load->view('adm/templates/footer');
                 }
 
             public function update()
                 {
-                    $id              = $this->input->post('id') ;
-                    $nrp             = $this->input->post('nrp');
-                    $nama_karyawan   = $this->input->post('nama_karyawan');
-                    $company         = $this->input->post('company');
-                    $lokasi          = $this->input->post('lokasi');
-                    $departement     = $this->input->post('departement');
-                    $posisi          = $this->input->post('posisi');
-                    $tempat_lahir    = $this->input->post('tempat_lahir');
-                    $tanggal_lahir   = $this->input->post('tanggal_lahir');               
-                    $status_keluarga = $this->input->post('status keluarga');               
-                    $status_keluarga = $this->input->post('tanggal_lahir');               
+                    $id                = $this->input->post('id') ;
+                    $no_asset          = $this->input->post('no_asset');
+                    $class             = $this->input->post('class');
+                    $cap_date          = $this->input->post('cap_date');
+                    $deskripsi         = $this->input->post('deskripsi');
+                    $lokasi            = $this->input->post('lokasi');
+                    $deskripsi_lokasi  = $this->input->post('deskripsi_lokasi');
+                    $acq_value         = $this->input->post('acq_value');
+                    $dep_value         = $this->input->post('dep_value');
+                    $book_value        = $this->input->post('book_value');
+                    $kondisi           = $this->input->post('kondisi');
+                    $utilisasi         = $this->input->post('utilisasi');
+                    $hilang            = $this->input->post('hilang');
+                    $keterangan        = $this->input->post('keterangan');             
 
                     $data = array (
-                        'nrp'                    => $nrp,
-                        'nama_karyawan'          => $nama_karyawan,
-                        'company'                => $masuk_pkl,
-                        'lokasi'                 => $lokasi,
-                        'departement'            => $departement,
-                        'posisi'                 => $posisi,
-                        'tempat_lahir'           => $tempat_lahir,
-                        'tanggal_lahir'          => $status_keluarga,
-                        'status_keluarga'        => $tanggal_lahir,
-                        'jumlah_anak'            => $tanggal_lahir,
-                        'tanggal_mulai_bekerja'  => $tanggal_lahir,
+                        'no_asset'         => $no_asset,
+                        'class'            => $class,
+                        'cap_date'         => $cap_date,
+                        'deskripsi'        => $deskripsi,
+                        'lokasi'           => $lokasi,
+                        'deskripsi_lokasi' => $deskripsi_lokasi,
+                        'acq_value'        => $acq_value,
+                        'dep_value'        => $dep_value,
+                        'book_value'       => $book_value,
+                        'kondisi'          => $kondisi,
+                        'utilisasi'        => $utilisasi,
+                        'hilang'           => $hilang,
+                        'keterangan'       => $keterangan,
                     ) ;
 
                     $where = array (
                         'id' => $id 
                     ) ;
                     
-                    $this->m_karyawan->update_data($where, $data, 'tb_karyawan') ;
+                    $this->m_asset->update_data($where, $data, 'tb_asset') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - PERBAHARUI (UPDATE)
+                    <strong>Selamat !! </strong> Data asset Berhasil Di - PERBAHARUI (UPDATE)
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                        redirect('mahasiswa/index') ;
+                        redirect('asset/index') ;
                 }
             
-            public function detail_mahasiswa($id)
+            public function detail_asset($id)
                 {
-                    $this->load->model('m_karyawan') ;
-                    $detail = $this->m_karyawan->detail_data($id) ;
-                    $data['detail_mahasiswa'] = $detail ;
+                    $this->load->model('m_asset') ;
+                    $detail = $this->m_asset->detail_data($id) ;
+                    $data['detail_asset'] = $detail ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('adm/detail/detail_mahasiswa', $data);
+                    $this->load->view('adm/detail/detail_asset', $data);
                     $this->load->view('adm/templates/footer');
                 }
 
-            public function print_mahasiswa()
+            public function print_asset()
                 {
-                    $data['karyawan'] = $this->m_karyawan->tampil_data('tb_karyawan')->result() ;
-                    $this->load->view('adm/print/print_karyawan', $data);
+                    $data['asset'] = $this->m_asset->tampil_data('tb_asset')->result() ;
+                    $this->load->view('adm/print/print_asset', $data);
                 }
 
             public function search()
                 {
                     $keyword = $this->input->post('keyword') ;
-                    $data['karyawan']=$this->m_karyawan->get_keyword($keyword) ;
+                    $data['asset']=$this->m_asset->get_keyword($keyword) ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('karyawan', $data);
+                    $this->load->view('asset', $data);
                     $this->load->view('adm/templates/footer');
                 }
         }

@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content">
         <br><center>
-        <h3><strong>DETAIL DATA MAHASISWA PKL</strong></h3>
+        <h3><strong>DETAIL DATA KARYAWAN</strong></h3>
         <br> </center>
         <table class="table">  
             <tr>
