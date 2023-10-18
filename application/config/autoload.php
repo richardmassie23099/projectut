@@ -132,6 +132,6 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-// $autoload['model'] = array('m_mahasiswa');
+//
 $autoload['model'] = array('m_registration', 'm_karyawan', 'm_medik', 'm_report');
 // $autoload['model'] = array('m_karyawan');

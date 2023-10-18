@@ -15,20 +15,20 @@
             {
                 $data['tahun'] = $this->m_medik->gettahun() ;
 
-                $this->load->view('adm/esr/temp-esr/header');
-                $this->load->view('adm/esr/temp-esr/sidebar');
+                $this->load->view('adm/templates/header');
+                $this->load->view('adm/templates/sidebar');
                 $this->load->view('adm/esr/cetak/cetak', $data);
-                $this->load->view('adm/esr/temp-esr/footer');
+                $this->load->view('adm/templates/footer');
             }
 
             public function cetak_medik()
             {
                 $data['tahun'] = $this->m_medik->gettahun() ;
 
-                $this->load->view('adm/esr/temp-esr/header');
-                $this->load->view('adm/esr/temp-esr/sidebar');
+                $this->load->view('adm/templates/header');
+                $this->load->view('adm/templates/sidebar');
                 $this->load->view('adm/esr/cetak/cetak_medik', $data);
-                $this->load->view('adm/esr/temp-esr/footer');
+                $this->load->view('adm/templates/footer');
             }
 
             function filter()
@@ -119,10 +119,10 @@
                 $data['start'] = $this->uri->segment(3) ;
                 $data['medik'] = $this->m_medik->get_data($config["per_page"], $data['start'], $data['keyword']) ;  
 
-                $this->load->view('adm/esr/temp-esr/header');
-                $this->load->view('adm/esr/temp-esr/sidebar');
+                $this->load->view('adm/templates/header');
+                $this->load->view('adm/templates/sidebar');
                 $this->load->view('esr-medik', $data);
-                $this->load->view('adm/esr/temp-esr/footer');
+                $this->load->view('adm/templates/footer');
 
             }
 
@@ -169,10 +169,10 @@
                     $where = array ('id' => $id) ;
                     $data['medik'] = $this->m_medik->edit_data($where, 'tb_medik')->result() ;
 
-                    $this->load->view('adm/esr/temp-esr/header');
-                    $this->load->view('adm/esr/temp-esr/sidebar');
-                    $this->load->view('adm/esr/edit/edit_medik', $data);
-                    $this->load->view('adm/esr/temp-esr/footer');
+                    $this->load->view('adm/templates/header');
+                    $this->load->view('adm/templates/sidebar');
+                    $this->load->view('adm/edit/edit_medik', $data);
+                    $this->load->view('adm/templates/footer');
                 }
 
             public function update()
@@ -215,10 +215,10 @@
                     $detail = $this->m_medik->detail_data($id) ;
                     $data['detail_medik'] = $detail ;
 
-                    $this->load->view('adm/esr/temp-esr/header');
-                    $this->load->view('adm/esr/temp-esr/sidebar');
+                    $this->load->view('adm/templates/header');
+                    $this->load->view('adm/templates/sidebar');
                     $this->load->view('adm/esr/detail/detail_medik', $data);
-                    $this->load->view('adm/esr/temp-esr/footer');
+                    $this->load->view('adm/templates/footer');
                 }
 
             public function print_medik()
@@ -254,9 +254,9 @@
                     $keyword = $this->input->post('keyword') ;
                     $data['medik']=$this->m_medik->get_keyword($keyword) ;
 
-                    $this->load->view('adm/esr/temp-esr/header');
-                    $this->load->view('adm/esr/temp-esr/sidebar');
+                    $this->load->view('adm/templates/header');
+                    $this->load->view('adm/templates/sidebar');
                     $this->load->view('medik', $data);
-                    $this->load->view('adm/esr/temp-esr/footer');
+                    $this->load->view('adm/templates/footer');
                 }
         }

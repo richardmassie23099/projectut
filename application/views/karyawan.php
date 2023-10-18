@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karyawan | E-Ewako Apps</title>
+</head>
+
             <div class="page-heading">
                 <div class="page-title">
                     <div class="row">
@@ -26,7 +35,7 @@
                                         <i class="bi bi-plus"></i> Tambahkan Data
                                     </button>
                                 <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                    <a class="btn btn-success btn-sm" href="<?php echo base_url('karyawan/print_mahasiswa') ?>" role="button">
+                                    <a class="btn btn-success btn-sm" target="_blank" href="<?php echo base_url('karyawan/print_karyawan') ?>" role="button">
                                         <i class="bi bi-printer"></i> Print Laporan
                                     </a>
                                 <?php } ?>
@@ -51,15 +60,11 @@
                                             <tr class="table-secondary">
                                                 <th class="text-center" style="width: 10px">No.</th>
                                                 <th class="text-center">NRP</th>
-                                                <th class="text-center">NAMA KARYAWAN</th>
-                                                <th class="text-center">COMPANY</th>
-                                                <th class="text-center">LOKASI</th>
-                                                <th class="text-center">DEPARTEMENT</th>
-                                                
-                                                <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                                    <th class="text-center">No Telp</th>
-                                                <?php } ?>
-                                               
+                                                <th class="text-center">Nama Karyawan</th>
+                                                <th class="text-center">Company</th>
+                                                <th class="text-center">Departement</th>
+                                                <th class="text-center">Posisi</th>
+                                                <th class="text-center">Lokasi</th>
                                                 <th class="text-center" colspan="3">Action</th>
                                             </tr>
                                         </thead>
@@ -68,19 +73,17 @@
                                             <?php foreach ($karyawan as $kry) : ?>
                                                 <tr>
                                                     <td><?php echo ++$start ?></td>
-                                                    <td><?php echo $kry['nama_mhs'] ?></td>
-                                                    <td><?php echo $kry['asal_kampus'] ?></td>
-                                                    <td><?php echo $kry['jurusan'] ?></td>
-                                                    <td><?php echo $kry['masuk_pkl'] ?></td>
-                                                    <td><?php echo $kry['keluar_pkl'] ?></td>
-                                                    <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                                        <td><?php echo $kry['no_telp'] ?></td>
-                                                    <?php } ?>
-                                                        <td><?php echo anchor('karyawan/detail_mahasiswa/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                                                    <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                                        <td><?php echo anchor('karyawan/edit_mahasiswa/'.$kry['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
-                                                        <td onclick="javascript: return confirm('Anda Yakin Untuk Meng - HAPUS Data Ini ?')"><?php echo anchor('karyawan/hapus/'.$kry['id'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                                    <?php } ?>
+                                                    <td><?php echo $kry['nrp'] ?></td>
+                                                    <td><?php echo $kry['nama_kry'] ?></td>
+                                                    <td><?php echo $kry['company'] ?></td>
+                                                    <td><?php echo $kry['departement'] ?></td>
+                                                    <td><?php echo $kry['posisi'] ?></td>                                                    
+                                                    <td><?php echo $kry['lokasi'] ?></td>
+                                                    <td><?php echo anchor('karyawan/detail_karyawan/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                                        <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
+                                                        <td><?php echo anchor('karyawan/edit_karyawan/'.$kry['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                                            <td onclick="javascript: return confirm('Anda Yakin Untuk Menghapus Data Ini ?')"><?php echo anchor('karyawan/hapus/'.$kry['id'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                                        <?php } ?>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -89,7 +92,7 @@
                                             <tr>
                                                 <td colspan="12">
                                                     <div class="alert alert-primary" role="alert"><center>
-                                                        <h4>Data <b>TIDAK</b> ditemukan !! </h4></center>
+                                                        <h4>Data <b>Tidak</b> Ditemukan !! </h4></center>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -115,93 +118,96 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Input Data Magang / PKL</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Input Data Karyawan</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <?php echo form_open_multipart('karyawan/tambah_aksi') ; ?>
                                 <div class="form-group">
                                     <label>NRP</label>
-                                    <input type="text" name="nama_mhs" class="form-control">
+                                    <input type="number" name="nrp" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Nama karyawan</label>
-                                    <input type="text" name="nama_karyawan" class="form-control">
+                                    <label>Nama Karyawan</label>
+                                    <input style="text transform: capitalize;" type="text" name="nama_kry" class="form-control" placeholder="Nama Lengkap Karyawan">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Company</label>
-                                    <input type="text" name="company" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input type="text" name="lokasi" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Departement</label>
-                                    <!-- <input type="text" name="departement" class="form-control"> -->
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">ADM</option>
-                                        <option value="2">SVC</option>
-                                        <option value="3">PRT</option>
-                                        <option value="4">SOD-TSO</option>
-                                        <!-- <option value="5">five</option> -->
+                                    <!-- <input type="text" name="company" class="form-control"> -->
+                                    <select class="form-select" name="company" id="company" aria-label="Default select example">
+                                        <option disabled selected>Company Karyawan</option>
+                                        <option value="UT">UT</option>
+                                        <option value="GSI">GSI</option>
+                                        <option value="HMU">HMU</option>
+                                        <option value="NAJ">NAJ</option>
+                                        <option value="MBUT">MBUT</option>
+                                        <option value="SIGAP">SIGAP</option>
+                                        <option value="KAMAJU">KAMAJU</option>
                                     </select>
-
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Department</label>
+                                    <!-- <input type="text" name="departement" class="form-control"> -->
+                                    <select class="form-select" name="departement" id="departement" aria-label="Default select example">
+                                        <option disabled selected>Department Karyawan</option>
+                                        <option value="ADM">ADM</option>
+                                        <option value="SVC">SVC</option>
+                                        <option value="PRT">PRT</option>
+                                        <option value="SOD">SOD-TSO</option>
+                                    </select>
                                 </div>
 
+                                
                                 <div class="form-group">
                                     <label>Posisi</label>
                                     <input type="text" name="posisi" class="form-control">
                                 </div>
+                                
+                                <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <!-- <input type="text" name="lokasi" class="form-control"> -->
+                                    <select class="form-select" name="lokasi" id="lokasi" aria-label="Default select example">
+                                        <option disabled selected>Penempatan Kerja</option>
+                                        <option value="Makassar">Makassar</option>
+                                        <option value="Kendari">Kendari</option>
+                                        <option value="Pomalaa">Pomalaa</option>
+                                        <option value="Langgikima">Langgikima</option>
+                                    </select>
+                                </div>
 
                                 <div class="form-group">
                                     <label>Tempat lahir</label>
-                                    <input type="text" name="tempat_lahir" class="form-control">
+                                    <input style="text transform: capitalize;" type="text" name="tempat_lahir" class="form-control">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Tanggal lahir</label>
-                                    <input type="date" name="tanggal_lahir" class="form-control">
+                                    <input type="date" name="tgl_lahir" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Status keluarga</label>
+                                    <label>Status Pernikahan</label>
                                     <!-- <input type="text" name="status_keluarga" class="form-control"> -->
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">Menikah</option>
-                                        <option value="2">Belum menikah</option>
-                                        <!-- <option value="3">Three</option> -->
+                                    <select class="form-select" name="status" id="status"aria-label="Default select example">
+                                        <option disabled selected>Pilih Status Pernikahan</option>
+                                        <option value="Menikah">Menikah</option>
+                                        <option value="Belum Menikah">Belum menikah</option>
                                     </select>
-
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Jumlah anak</label>
-                                    <!-- <input type="text" name="jumlah_anak" class="form-control"> -->
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <!-- <option value="7">seven</option> -->
-                                    </select>
-
+                                    <label>Jumlah Anak</label>
+                                    <input type="number" name="jumlah_anak" class="form-control">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Tanggal mulai bekerja</label>
-                                    <input type="date" name="tanggal_bekerja" class="form-control">
+                                    <input type="date" name="tgl_bekerja" class="form-control">
                                 </div>
- 
+
                                 <div class="modal-footer">
                                     <button type="RESET" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Reset</button>
                                     <button type="SUBMIT" class="btn btn-sm btn-primary">Save</button>

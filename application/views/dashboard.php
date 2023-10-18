@@ -52,7 +52,7 @@
             <?php if ($_SESSION['hak_akses'] == 'ASSET'  or $_SESSION['hak_akses'] == 'A') { ?>
             <div class="col-6 col-lg-4 col-md-6">
                 <div class="card">
-                    <a href="<?php echo base_url() ?>bbm/index">
+                    <a href="<?php echo base_url() ?>asset/index">
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
@@ -63,13 +63,11 @@
                     </div>
                     </a>
                 </div>
-            </div>                            
-            <?php } ?>
+            </div>
 
-            <?php if ($_SESSION['hak_akses'] == 'ARSIP'  or $_SESSION['hak_akses'] == 'A') { ?>
             <div class="col-6 col-lg-4 col-md-6">
                 <div class="card">
-                    <a href="index-parts.html">
+                    <a href="<?php echo base_url() ?>arsip/index">
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">

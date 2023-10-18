@@ -1,5 +1,5 @@
 <?php
-    class  M_karyawan extends CI_Model 
+    class M_karyawan extends CI_Model 
         {
             public function tampil_data()
                 {
@@ -9,14 +9,17 @@
             public function get_data($limit, $start, $keyword = null)
                 {
                     if ($keyword) {
-                        $this->db->like('nama_mhs', $keyword) ;
-                        $this->db->or_like('asal_kampus', $keyword) ;
-                        $this->db->or_like('jurusan', $keyword) ;
-                        $this->db->or_like('masuk_pkl', $keyword) ;
-                        $this->db->or_like('keluar_pkl', $keyword) ;
-                        $this->db->or_like('no_telp', $keyword) ;
-                        $this->db->or_like('alamat', $keyword) ;
-                        $this->db->or_like('email', $keyword) ;
+                        $this->db->like('nrp', $keyword) ;
+                        $this->db->or_like('nama_kry', $keyword) ;
+                        $this->db->or_like('company', $keyword) ;
+                        $this->db->or_like('lokasi', $keyword) ;
+                        $this->db->or_like('departement', $keyword) ;
+                        $this->db->or_like('posisi', $keyword) ;
+                        $this->db->or_like('tempat_lahir', $keyword) ;
+                        $this->db->or_like('tgl_lahir', $keyword) ;
+                        $this->db->or_like('status', $keyword) ;
+                        $this->db->or_like('jumlah_anak', $keyword) ;
+                        $this->db->or_like('tgl_bekerja', $keyword) ;
                     }
                     return $this->db->get('tb_karyawan', $limit, $start)->result_array() ;
                 }
@@ -54,14 +57,17 @@
                     $this->db->select('*') ;
                     $this->db->from('tb_karyawan') ;
                     
-                    $this->db->like('nama_mhs', $keyword) ;
-                    $this->db->or_like('asal_kampus', $keyword) ;
-                    $this->db->or_like('masuk_pkl', $keyword) ;
-                    $this->db->or_like('keluar_pkl', $keyword) ;
-                    $this->db->or_like('no_telp', $keyword) ;
-                    $this->db->or_like('alamat', $keyword) ;
-                    $this->db->or_like('jurusan', $keyword) ;
-                    $this->db->or_like('email', $keyword) ;
+                    $this->db->like('nrp', $keyword) ;
+                    $this->db->or_like('nama_kry', $keyword) ;
+                    $this->db->or_like('company', $keyword) ;
+                    $this->db->or_like('lokasi', $keyword) ;
+                    $this->db->or_like('departement', $keyword) ;
+                    $this->db->or_like('posisi', $keyword) ;
+                    $this->db->or_like('tempat_lahir', $keyword) ;
+                    $this->db->or_like('tgl_lahir', $keyword) ;
+                    $this->db->or_like('status', $keyword) ;
+                    $this->db->or_like('jumlah_anak', $keyword) ;
+                    $this->db->or_like('tgl_bekerja', $keyword) ;
                     return $this->db->get()->result() ;
                 }
 

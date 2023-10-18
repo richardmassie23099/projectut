@@ -5,7 +5,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="<?php echo base_url() ?>assets/assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
+                            <a href=""><img src="<?php echo base_url() ?>assets/assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
                             <!-- <h4><img src="assets/images/logo/UT.png" alt="Logo" srcset=""> Ewako</h4> -->
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -24,13 +24,12 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         
-                        <li class="sidebar-item <?= activate_menu('dashboard') ?>">
-                            <!-- <a href="<?php echo base_url() ?>dashboard/index" class='sidebar-link'> -->
+                        <!-- <li class="sidebar-item <?= activate_menu('dashboard') ?>">
                             <a href="<?php echo site_url() ?>login" class='sidebar-link'>
                                 <i class="bi bi-box-arrow-in-right"></i>
                                 <span>Login</span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="sidebar-title"><u>Menu</u></li>
 
@@ -41,20 +40,24 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item <?= activate_menu('service') ?>">
-                            <a href="index-svc.html" class='sidebar-link'>
-                                <i class="bi bi-car-front-fill"></i>
-                                <span>Data Asset</span>
-                            </a>
-                        </li>
+                        <?php if ($_SESSION['hak_akses'] == 'ASSET'  or $_SESSION['hak_akses'] == 'A') { ?>
 
-                        <li class="sidebar-item">
-                            <a href="index-parts.html" class='sidebar-link'>
-                                <i class="bi bi-tools"></i>
-                                <span>Data Arsip</span>
-                            </a>
-                        </li>                        
-                        
+                            <li class="sidebar-item <?= activate_menu('service') ?>">
+                                <a href="index-svc.html" class='sidebar-link'>
+                                    <i class="bi bi-car-front-fill"></i>
+                                    <span>Data Asset</span>
+                                </a>
+                            </li>
+                            
+                            <li class="sidebar-item">
+                                <a href="index-parts.html" class='sidebar-link'>
+                                    <i class="bi bi-tools"></i>
+                                    <span>Data Arsip</span>
+                                </a>
+                            </li>
+
+                        <?php } ?>
+                            
                         <!-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-menu-app-fill"></i>
@@ -80,6 +83,13 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-info-circle-fill"></i>
                                 <span>Information</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="<?php echo site_url() ?>login/logout" class='sidebar-link'>
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Logout</span>
                             </a>
                         </li>
 

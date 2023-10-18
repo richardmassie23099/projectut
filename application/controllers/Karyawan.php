@@ -24,14 +24,17 @@
                 }
                 
                 $config['base_url']     = 'http://localhost/bbm_ut/karyawan/index' ;
-                $this->db->like('nama_mhs', $data['keyword']) ;
-                $this->db->or_like('asal_kampus', $data['keyword']) ;
-                $this->db->or_like('jurusan', $data['keyword']) ;
-                $this->db->or_like('masuk_pkl', $data['keyword']) ;
-                $this->db->or_like('keluar_pkl', $data['keyword']) ;
-                $this->db->or_like('no_telp', $data['keyword']) ;
-                $this->db->or_like('alamat', $data['keyword']) ;
-                $this->db->or_like('email', $data['keyword']) ;
+                $this->db->like('nrp', $data['keyword']) ;
+                $this->db->or_like('nama_kry', $data['keyword']) ;
+                $this->db->or_like('company', $data['keyword']) ;
+                $this->db->or_like('lokasi', $data['keyword']) ;
+                $this->db->or_like('departement', $data['keyword']) ;
+                $this->db->or_like('posisi', $data['keyword']) ;
+                $this->db->or_like('tempat_lahir', $data['keyword']) ;
+                $this->db->or_like('tgl_lahir', $data['keyword']) ;
+                $this->db->or_like('status', $data['keyword']) ;
+                $this->db->or_like('jumlah_anak', $data['keyword']) ;
+                $this->db->or_like('tgl_bekerja', $data['keyword']) ;
                 $this->db->from('tb_karyawan') ;
                 $config['total_rows']   = $this->db->count_all_results() ;
                 $data['total_rows'] = $config['total_rows'] ;
@@ -72,34 +75,40 @@
 
                 $this->load->view('adm/templates/header');
                 $this->load->view('adm/templates/sidebar');
-                $this->load->view('esr-mhs', $data);
+                $this->load->view('karyawan', $data);
                 $this->load->view('adm/templates/footer');
 
             }
             public function tambah_aksi(){
-                $nama_mhs      = $this->input->post('nama_mhs');
-                $asal_kampus   = $this->input->post('asal_kampus');
-                $jurusan       = $this->input->post('jurusan');
-                $masuk_pkl     = $this->input->post('masuk_pkl');
-                $keluar_pkl    = $this->input->post('keluar_pkl');
-                $no_telp       = $this->input->post('no_telp');
-                $alamat        = $this->input->post('alamat');
-                $email         = $this->input->post('email');
+                $nrp           = $this->input->post('nrp');
+                $nama_kry      = $this->input->post('nama_kry');
+                $company       = $this->input->post('company');
+                $lokasi        = $this->input->post('lokasi');
+                $departement   = $this->input->post('departement');
+                $posisi        = $this->input->post('posisi');
+                $tempat_lahir  = $this->input->post('tempat_lahir');
+                $tgl_lahir     = $this->input->post('tgl_lahir');
+                $status        = $this->input->post('status');
+                $jumlah_anak   = $this->input->post('jumlah_anak');
+                $tgl_bekerja   = $this->input->post('tgl_bekerja');
 
                 $data = array(
-                    'nama_mhs'      => $nama_mhs,
-                    'asal_kampus'   => $asal_kampus,
-                    'masuk_pkl'     => $masuk_pkl,
-                    'keluar_pkl'    => $keluar_pkl,
-                    'jurusan'       => $jurusan,
-                    'alamat'        => $alamat,
-                    'email'         => $email,
-                    'no_telp'       => $no_telp,
+                    'nrp'           => $nrp,
+                    'nama_kry'      => $nama_kry,
+                    'company'       => $company,
+                    'lokasi'        => $lokasi,
+                    'departement'   => $departement,
+                    'posisi'        => $posisi,
+                    'tempat_lahir'  => $tempat_lahir,
+                    'tgl_lahir'     => $tgl_lahir,
+                    'status'        => $status,
+                    'jumlah_anak'   => $jumlah_anak,
+                    'tgl_bekerja'   => $tgl_bekerja
                 );
 
                 $this->m_karyawan->input_data($data,'tb_karyawan');
                     $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - TAMBAHKAN
+                        <strong>Selamat !! </strong> Data Karyawan Berhasil Ditambahkan
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 redirect ('karyawan/index');
             }
@@ -109,43 +118,49 @@
                     $where = array ('id' => $id) ;
                     $this->m_karyawan->hapus_data($where, 'tb_karyawan') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - HAPUS (DELETE)
+                    <strong>Selamat !! </strong> Data Karyawan Berhasil Dihapus
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     redirect ('karyawan/index') ;
                 }
 
-            public function edit_mahasiswa($id)
+            public function edit_karyawan($id)
                 {
                     $where = array ('id' => $id) ;
                     $data['karyawan'] = $this->m_karyawan->edit_data($where, 'tb_karyawan')->result() ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('edit_mahasiswa', $data);
+                    $this->load->view('adm/edit/edit_karyawan', $data);
                     $this->load->view('adm/templates/footer');
                 }
 
             public function update()
                 {
-                    $id         = $this->input->post('id') ;
-                    $nama_mhs      = $this->input->post('nama_mhs');
-                    $asal_kampus   = $this->input->post('asal_kampus');
-                    $jurusan       = $this->input->post('jurusan');
-                    $masuk_pkl     = $this->input->post('masuk_pkl');
-                    $keluar_pkl    = $this->input->post('keluar_pkl');
-                    $no_telp       = $this->input->post('no_telp');
-                    $alamat        = $this->input->post('alamat');
-                    $email         = $this->input->post('email');               
-
+                    $id            = $this->input->post('id');
+                    $nrp           = $this->input->post('nrp');
+                    $nama_kry      = $this->input->post('nama_kry');
+                    $company       = $this->input->post('company');
+                    $departement   = $this->input->post('departement');
+                    $posisi        = $this->input->post('posisi');
+                    $lokasi        = $this->input->post('lokasi');
+                    $tempat_lahir  = $this->input->post('tempat_lahir');
+                    $tgl_lahir     = $this->input->post('tgl_lahir');
+                    $status        = $this->input->post('status');               
+                    $jumlah_anak   = $this->input->post('jumlah_anak');               
+                    $tgl_bekerja   = $this->input->post('tgl_bekerja');               
+                    
                     $data = array (
-                        'nama_mhs'      => $nama_mhs,
-                        'asal_kampus'   => $asal_kampus,
-                        'masuk_pkl'     => $masuk_pkl,
-                        'keluar_pkl'    => $keluar_pkl,
-                        'jurusan'       => $jurusan,
-                        'alamat'        => $alamat,
-                        'email'         => $email,
-                        'no_telp'       => $no_telp,
+                        'nrp'           => $nrp,
+                        'nama_kry'      => $nama_kry,
+                        'company'       => $company,
+                        'departement'   => $departement,
+                        'posisi'        => $posisi,
+                        'lokasi'        => $lokasi,
+                        'tempat_lahir'  => $tempat_lahir,
+                        'tgl_lahir'     => $tgl_lahir,
+                        'status'        => $status,
+                        'jumlah_anak'   => $jumlah_anak,
+                        'tgl_bekerja'   => $tgl_bekerja
                     ) ;
 
                     $where = array (
@@ -154,27 +169,27 @@
                     
                     $this->m_karyawan->update_data($where, $data, 'tb_karyawan') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - PERBAHARUI (UPDATE)
+                    <strong>Selamat !! </strong> Data Karyawan Berhasil Diperbaharui
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                        redirect('mahasiswa/index') ;
+                        redirect('karyawan/index') ;
                 }
             
-            public function detail_mahasiswa($id)
+            public function detail_karyawan($id)
                 {
                     $this->load->model('m_karyawan') ;
                     $detail = $this->m_karyawan->detail_data($id) ;
-                    $data['detail_mahasiswa'] = $detail ;
+                    $data['detail_karyawan'] = $detail ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('adm/detail/detail_mahasiswa', $data);
+                    $this->load->view('adm/detail/detail_karyawan', $data);
                     $this->load->view('adm/templates/footer');
                 }
 
-            public function print_mahasiswa()
+            public function print_karyawan()
                 {
                     $data['karyawan'] = $this->m_karyawan->tampil_data('tb_karyawan')->result() ;
-                    $this->load->view('adm/print/print_mahasiswa', $data);
+                    $this->load->view('adm/print/print_karyawan', $data);
                 }
 
             public function search()
