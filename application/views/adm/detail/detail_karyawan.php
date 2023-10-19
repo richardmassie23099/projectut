@@ -6,66 +6,66 @@
         <table class="table">  
             <tr>
                 <th>NRP</th>
-                <td><?php echo $detail_mahasiswa->nama_mhs ?></td>
+                <td><?php echo $detail_karyawan->nrp ?></td>
             </tr>
 
             <tr>
                 <th>Nama Karyawan</th>
-                    <td><?php echo $detail_mahasiswa->asal_kampus ?></td>
+                    <td><?php echo $detail_karyawan->nama_karyawan ?></td>
             </tr>
 
             <tr>
                 <th>Company</th>
-                    <td><?php echo $detail_mahasiswa->jurusan ?></td>
+                    <td><?php echo $detail_karyawan->company ?></td>
             </tr>
 
             <tr>
                 <th>Lokasi</th>
-                    <td><?php echo $detail_mahasiswa->masuk_pkl ?></td>
+                    <td><?php echo $detail_karyawan->lokasi ?></td>
             </tr>
 
             <tr>
                 <th>Departement</th>
-                    <td><?php echo $detail_mahasiswa->keluar_pkl ?></td>
+                    <td><?php echo $detail_karyawan->departement ?></td>
             </tr>
 
             <tr>
                 <th>Posisi</th>
-                    <td><?php echo $detail_mahasiswa->no_telp ?></td>
+                    <td><?php echo $detail_karyawan->posisi ?></td>
             </tr>
 
             <tr>
                 <th>Tempat lahir</th>
-                    <td><?php echo $detail_mahasiswa->alamat ?></td>
+                    <td><?php echo $detail_karyawan->tempat_lahir ?></td>
             </tr>
             
             <tr>
                 <th>Tanggal lahir</th>
-                    <td><?php echo $detail_mahasiswa->email ?></td>
+                    <td><?php echo $detail_karyawan->tanggal_lahir ?></td>
             </tr>
 
             <tr>
                 <th>Status keluarga</th>
-                    <td><?php echo $detail_mahasiswa->email ?></td>
+                    <td><?php echo $detail_karyawan->status_keluarga ?></td>
             </tr>
 
             <tr>
                 <th>Jumlah anak</th>
-                    <td><?php echo $detail_mahasiswa->email ?></td>
+                    <td><?php echo $detail_karyawan->jumlah_anak ?></td>
             </tr>
 
             <tr>
                 <th>Tanggal mulai bekerja</th>
-                    <td><?php echo $detail_mahasiswa->email ?></td>
+                    <td><?php echo $detail_karyawan->tanggal_mulai_bekerja ?></td>
             </tr>
 
             <tr>
                 <th>FOTO</th>
-                    <td><?php echo $detail_mahasiswa->email ?></td>
+                    <td><?php echo $detail_karyawan->foto ?></td>
             </tr>
 
         </table><br>
         <center>
-        <a href="<?php echo base_url('mahasiswa/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>
+        <a href="<?php echo base_url('karyawan/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>
     </section>
 </div>

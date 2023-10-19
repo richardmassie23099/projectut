@@ -69,9 +69,9 @@
                                                     <td><?php echo $kry['company'] ?></td>
                                                     <td><?php echo $kry['lokasi'] ?></td>
                                                     <td><?php echo $kry['departement'] ?></td>
-                                                        <td><?php echo anchor('karyawan/detail_mahasiswa/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                                        <td><?php echo anchor('karyawan/detail_karyawan/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
                                                     <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
-                                                        <td><?php echo anchor('karyawan/edit_mahasiswa/'.$kry['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                                        <td><?php echo anchor('karyawan/edit_karyawan/'.$kry['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
                                                         <td onclick="javascript: return confirm('Anda Yakin Untuk Meng - HAPUS Data Ini ?')"><?php echo anchor('karyawan/hapus/'.$kry['id'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
                                                     <?php } ?>
                                                 </tr>
@@ -135,7 +135,7 @@
 
                                 <div class="form-group">
                                     <label>Departement</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="departement" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
                                         <option value="1">ADM</option>
                                         <option value="2">SVC</option>
@@ -164,7 +164,7 @@
                                 <div class="form-group">
                                     <label>Status keluarga</label>
                                     <!-- <input type="text" name="status_keluarga" class="form-control"> -->
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="status_keluarga" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
                                         <option value="1">Menikah</option>
                                         <option value="2">Belum menikah</option>
@@ -176,7 +176,7 @@
                                 <div class="form-group">
                                     <label>Jumlah anak</label>
                                     <!-- <input type="text" name="jumlah_anak" class="form-control"> -->
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="jumlah_anak" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -191,7 +191,7 @@
 
                                 <div class="form-group">
                                     <label>Tanggal mulai bekerja</label>
-                                    <input type="date" name="tanggal_bekerja" class="form-control">
+                                    <input type="date" name="tanggal_mulai_bekerja" class="form-control">
                                 </div>
  
                                 <div class="modal-footer">
