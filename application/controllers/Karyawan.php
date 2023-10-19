@@ -83,9 +83,9 @@
                 $nrp           = $this->input->post('nrp');
                 $nama_kry      = $this->input->post('nama_kry');
                 $company       = $this->input->post('company');
-                $lokasi        = $this->input->post('lokasi');
                 $departement   = $this->input->post('departement');
                 $posisi        = $this->input->post('posisi');
+                $lokasi        = $this->input->post('lokasi');
                 $tempat_lahir  = $this->input->post('tempat_lahir');
                 $tgl_lahir     = $this->input->post('tgl_lahir');
                 $status        = $this->input->post('status');
@@ -96,9 +96,9 @@
                     'nrp'           => $nrp,
                     'nama_kry'      => $nama_kry,
                     'company'       => $company,
-                    'lokasi'        => $lokasi,
                     'departement'   => $departement,
                     'posisi'        => $posisi,
+                    'lokasi'        => $lokasi,
                     'tempat_lahir'  => $tempat_lahir,
                     'tgl_lahir'     => $tgl_lahir,
                     'status'        => $status,

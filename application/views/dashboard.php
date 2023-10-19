@@ -40,7 +40,7 @@
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
-                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-adm.png" width="70px">
+                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-karyawan.png" width="70px">
                                 <h5 class="font-extrabold  mt-2">DATA KARYAWAN</h5>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
-                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-svc.png" width="70px">
+                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-asset1.png" width="70px">
                                 <h5 class="font-extrabold  mt-2">DATA ASSET</h5>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                     <div class="card-body px-1 py-1-1">
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
-                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-parts.png" width="70px">
+                                <img src="<?php echo base_url() ?>assets/assets/images/icon/logo-archive.png" width="70px">
                                 <h5 class="font-extrabold  mt-2">DATA ARSIP</h5>
                             </div>
                         </div>

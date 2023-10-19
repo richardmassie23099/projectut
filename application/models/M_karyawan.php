@@ -12,9 +12,9 @@
                         $this->db->like('nrp', $keyword) ;
                         $this->db->or_like('nama_kry', $keyword) ;
                         $this->db->or_like('company', $keyword) ;
-                        $this->db->or_like('lokasi', $keyword) ;
                         $this->db->or_like('departement', $keyword) ;
                         $this->db->or_like('posisi', $keyword) ;
+                        $this->db->or_like('lokasi', $keyword) ;
                         $this->db->or_like('tempat_lahir', $keyword) ;
                         $this->db->or_like('tgl_lahir', $keyword) ;
                         $this->db->or_like('status', $keyword) ;
@@ -60,9 +60,9 @@
                     $this->db->like('nrp', $keyword) ;
                     $this->db->or_like('nama_kry', $keyword) ;
                     $this->db->or_like('company', $keyword) ;
-                    $this->db->or_like('lokasi', $keyword) ;
                     $this->db->or_like('departement', $keyword) ;
                     $this->db->or_like('posisi', $keyword) ;
+                    $this->db->or_like('lokasi', $keyword) ;
                     $this->db->or_like('tempat_lahir', $keyword) ;
                     $this->db->or_like('tgl_lahir', $keyword) ;
                     $this->db->or_like('status', $keyword) ;

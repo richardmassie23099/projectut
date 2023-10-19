@@ -42,15 +42,15 @@
 
                         <?php if ($_SESSION['hak_akses'] == 'ASSET'  or $_SESSION['hak_akses'] == 'A') { ?>
 
-                            <li class="sidebar-item <?= activate_menu('service') ?>">
-                                <a href="index-svc.html" class='sidebar-link'>
+                            <li class="sidebar-item <?= activate_menu('asset') ?>">
+                                <a href="<?php echo base_url() ?>asset/index" class='sidebar-link'>
                                     <i class="bi bi-car-front-fill"></i>
                                     <span>Data Asset</span>
                                 </a>
                             </li>
                             
                             <li class="sidebar-item">
-                                <a href="index-parts.html" class='sidebar-link'>
+                                <a href="<?php echo base_url() ?>arsip/index" class='sidebar-link'>
                                     <i class="bi bi-tools"></i>
                                     <span>Data Arsip</span>
                                 </a>

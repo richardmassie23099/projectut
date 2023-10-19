@@ -37,9 +37,9 @@
             <th>NRP</th>
             <th>Nama Karyawan</th>
             <th style="width: 200px">Company</th>
-            <th style="width: 150px">Lokasi</th>
             <th style="width: 12px">Departement</th>
             <th style="width: 12px">Posisi</th>
+            <th style="width: 150px">Lokasi</th>
             <th style="width: 30px">Tempat Lahir</th>
             <th style="width: 200px">Tanggal Lahir</th>
             <th style="width: 8px">Status Keluarga</th>

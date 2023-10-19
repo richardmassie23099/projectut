@@ -7,20 +7,21 @@
             <form action="<?php echo base_url().'karyawan/update' ; ?>" method="post">
                 
                 <div class="form-group">
+                    <input type="hidden" name="id" class="form-control" value="<?php echo $kry->id ?>">
+                </div>
+
+                <div class="form-group">
                     <label>NRP</label>
-                    <!-- <input type="hidden" name="id" class="form-control" value="<?php echo $kry->id ?>"> -->
                     <input type="number" name="nrp" class="form-control" value="<?php echo $kry->nrp ?>">
                 </div>
 
                 <div class="form-group">
                     <label>Nama Karyawan</label>
-                    <!-- <input type="hidden" name="id" class="form-control" value="<?php echo $kry->id ?>"> -->
                     <input type="text" name="nama_kry" class="form-control" value="<?php echo $kry->nama_kry ?>">
                 </div>
 
                 <div class="form-group">
                     <label>Company</label>
-                    <!-- <input type="" name="company" value="<?php echo $kry->company ?>"  class="form-control"> -->
                     <select class="form-select" name="company" id="company" value="<?php echo $kry->company ?>" aria-label="Default select example">
                         <option disabled>Company Karyawan</option>
                         <option value="UT">UT</option>
@@ -35,7 +36,6 @@
 
                 <div class="form-group">
                     <label>Department</label>
-                    <!-- <input type="text" name="departement" value="<?php echo $kry->departement ?>"  class="form-control"> -->
                     <select class="form-select" name="departement" id="departement" value="<?php echo $kry->departement ?>" aria-label="Default select example">
                         <option disabled>Departemnt Karyawan</option>
                         <option value="ADM">ADM</option>
