@@ -60,8 +60,10 @@
             </tr>
 
             <tr>
-                <th>FOTO</th>
-                    <td><?php echo $detail_karyawan->foto ?></td>
+                <th>Foto Karyawan</th>
+                    <td>
+                        <img src="<?php echo base_url() ; ?>assets/foto/karyawan/<?php echo $detail_karyawan->foto; ?>" >
+                    </td>
             </tr>
 
         </table><br>

@@ -1,5 +1,5 @@
 <?php
-    class Karyawan extends CI_Controller
+    class Arsip extends CI_Controller
         {
 
             
@@ -11,7 +11,7 @@
                     redirect('login') ;
                 }
 
-                $this->load->model('m_karyawan') ;
+                $this->load->model('m_arsip') ;
             }
 
             public function index()
@@ -23,7 +23,7 @@
                     $data['keyword'] = $this->session->userdata('keyword') ;
                 }
                 
-                $config['base_url']     = 'http://localhost/bbm_ut/karyawan/index' ;
+                $config['base_url']     = 'http://localhost/bbm_ut/arsip/index' ;
                 // $this->db->like('nama_mhs', $data['keyword']) ;
                 // $this->db->or_like('asal_kampus', $data['keyword']) ;
                 // $this->db->or_like('jurusan', $data['keyword']) ;
@@ -32,7 +32,7 @@
                 // $this->db->or_like('no_telp', $data['keyword']) ;
                 // $this->db->or_like('alamat', $data['keyword']) ;
                 // $this->db->or_like('email', $data['keyword']) ;
-                $this->db->from('tb_karyawan') ;
+                $this->db->from('tb_arsip') ;
                 $config['total_rows']   = $this->db->count_all_results() ;
                 $data['total_rows'] = $config['total_rows'] ;
                 $config['per_page']     = 20 ;
@@ -68,135 +68,127 @@
                 $this->pagination->initialize($config) ;
 
                 $data['start'] = $this->uri->segment(3) ;
-                $data['karyawan'] = $this->m_karyawan->get_data($config["per_page"], $data['start'], $data['keyword']) ;
+                $data['arsip'] = $this->m_arsip->get_data($config["per_page"], $data['start'], $data['keyword']) ;
 
                 $this->load->view('adm/templates/header');
                 $this->load->view('adm/templates/sidebar');
-                $this->load->view('esr-karyawan', $data);
+                $this->load->view('esr-arsip', $data);
                 $this->load->view('adm/templates/footer');
 
             }
             public function tambah_aksi(){
-                $nrp                    = $this->input->post('nrp');
-                $nama_karyawan          = $this->input->post('nama_karyawan');
-                $company                = $this->input->post('company');
-                $lokasi                 = $this->input->post('lokasi');
-                $departement            = $this->input->post('departement');
-                $posisi                 = $this->input->post('posisi');
-                $tempat_lahir           = $this->input->post('tempat_lahir');
-                $tanggal_lahir          = $this->input->post('tanggal_lahir');
-                $status_keluarga        = $this->input->post('status_keluarga');
-                $jumlah_anak            = $this->input->post('jumlah_anak');
-                $tanggal_mulai_bekerja  = $this->input->post('tanggal_mulai_bekerja');
+                $no_dokumen       = $this->input->post('no_dokumen');
+                $jenis_dokumen    = $this->input->post('jenis_dokumen');
+                $tanggal_dokumen  = $this->input->post('tanggal_dokumen');
+                $cabang           = $this->input->post('cabang');
+                $status           = $this->input->post('status');
+                $type             = $this->input->post('type');
+                $kepada           = $this->input->post('kepada');
+                $keperluan        = $this->input->post('keperluan');
+                $lokasi_arsip     = $this->input->post('lokasi_arsip');
 
                 $data = array(
-                    'nrp'                         => $nrp,
-                    'nama_karyawan'               => $nama_karyawan,
-                    'company'                     => $company,
-                    'lokasi'                      => $lokasi,
-                    'departement'                 => $departement,
-                    'posisi'                      => $posisi,
-                    'tempat_lahir'                => $tempat_lahir,
-                    'tanggal_lahir'               => $tanggal_lahir,
-                    'status_keluarga'             => $status_keluarga,
-                    'jumlah_anak'                 => $jumlah_anak,
-                    'tanggal_mulai_bekerja'       => $tanggal_mulai_bekerja,
+                    'no_dokumen'       => $no_dokumen,
+                    'jenis_dokumen'    => $jenis_dokumen,
+                    'tanggal_dokumen'  => $tanggal_dokumen,
+                    'cabang'           => $cabang,
+                    'status'           => $status,
+                    'type'             => $type,
+                    'kepada'           => $kepada,
+                    'keperluan'        => $keperluan,
+                    'lokasi_arsip'     => $lokasi_arsip,
                 );
 
-                $this->m_karyawan->input_data($data,'tb_karyawan');
+                $this->m_arsip->input_data($data,'tb_arsip');
                     $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Selamat !! </strong> Data Karyawan Berhasil Di - TAMBAHKAN
+                        <strong>Selamat !! </strong> Data arsip Berhasil Di - TAMBAHKAN
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                redirect ('karyawan/index');
+                redirect ('arsip/index');
             }
 
             public function hapus($id)
                 {
                     $where = array ('id' => $id) ;
-                    $this->m_karyawan->hapus_data($where, 'tb_karyawan') ;
+                    $this->m_arsip->hapus_data($where, 'tb_arsip') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - HAPUS (DELETE)
+                    <strong>Selamat !! </strong> Data arsip Berhasil Di - HAPUS (DELETE)
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    redirect ('karyawan/index') ;
+                    redirect ('arsip/index') ;
                 }
 
-            public function edit_karyawan($id)
+            public function edit_arsip($id)
                 {
                     $where = array ('id' => $id) ;
-                    $data['karyawan'] = $this->m_karyawan->edit_data($where, 'tb_karyawan')->result() ;
+                    $data['arsip'] = $this->m_arsip->edit_data($where, 'tb_arsip')->result() ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('adm/edit/edit_karyawan', $data);
+                    $this->load->view('adm/edit/edit_arsip', $data);
                     $this->load->view('adm/templates/footer');
                 }
 
             public function update()
                 {
-                    $id                        = $this->input->post('id') ;
-                    $nrp                       = $this->input->post('nrp');
-                    $nama_karyawan             = $this->input->post('nama_karyawan');
-                    $company                   = $this->input->post('company');
-                    $lokasi                    = $this->input->post('lokasi');
-                    $departement               = $this->input->post('departement');
-                    $posisi                    = $this->input->post('posisi');
-                    $tempat_lahir              = $this->input->post('tempat_lahir');
-                    $tanggal_lahir             = $this->input->post('tanggal_lahir');               
-                    $status_keluarga           = $this->input->post('status_keluarga');               
-                    $jumlah_anak               = $this->input->post('jumlah_anak');               
-                    $tanggal_mulai_bekerja     = $this->input->post('tanggal_mulai_bekerja');               
+                    $id               = $this->input->post('id') ;
+                    $no_dokumen       = $this->input->post('no_dokumen');
+                    $jenis_dokumen    = $this->input->post('jenis_dokumen');
+                    $tanggal_dokumen  = $this->input->post('tanggal_dokumen');
+                    $cabang           = $this->input->post('cabang');
+                    $status           = $this->input->post('status');
+                    $type             = $this->input->post('type');
+                    $kepada           = $this->input->post('kepada');
+                    $keperluan        = $this->input->post('keperluan');
+                    $lokasi_arsip     = $this->input->post('lokasi_arsip');  
 
                     $data = array (
-                        'nrp'                    => $nrp,
-                        'nama_karyawan'          => $nama_karyawan,
-                        'company'                => $company,
-                        'lokasi'                 => $lokasi,
-                        'departement'            => $departement,
-                        'posisi'                 => $posisi,
-                        'tempat_lahir'           => $tempat_lahir,
-                        'tanggal_lahir'          => $tanggal_lahir,
-                        'status_keluarga'        => $status_keluarga,
-                        'jumlah_anak'            => $jumlah_anak,
-                        'tanggal_mulai_bekerja'  => $tanggal_mulai_bekerja,
+                        'no_dokumen'      => $no_dokumen,
+                        'jenis_dokumen'   => $jenis_dokumen,
+                        'tanggal_dokumen' => $tanggal_dokumen,
+                        'cabang'          => $cabang,
+                        'status'          => $status,
+                        'type'            => $type,
+                        'kepada'          => $kepada,
+                        'keperluan'       => $keperluan,
+                        'lokasi_arsip'    => $lokasi_arsip,
                     ) ;
 
                     $where = array (
                         'id' => $id 
                     ) ;
                     
-                    $this->m_karyawan->update_data($where, $data, 'tb_karyawan') ;
+                    $this->m_arsip->update_data($where, $data, 'tb_arsip') ;
                     $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <strong>Selamat !! </strong> Data Mahasiswa Berhasil Di - PERBAHARUI (UPDATE)
+                    <strong>Selamat !! </strong> Data arsip Berhasil Di - PERBAHARUI (UPDATE)
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                        redirect('karyawan/index') ;
+                        redirect('arsip/index') ;
                 }
             
-            public function detail_karyawan($id)
+            public function detail_arsip($id)
                 {
-                    $this->load->model('m_karyawan') ;
-                    $detail = $this->m_karyawan->detail_data($id) ;
-                    $data['detail_karyawan'] = $detail ;
+                    $this->load->model('m_arsip') ;
+                    $detail = $this->m_arsip->detail_data($id) ;
+                    $data['detail_arsip'] = $detail ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('adm/detail/detail_karyawan', $data);
+                    $this->load->view('adm/detail/detail_arsip', $data);
                     $this->load->view('adm/templates/footer');
                 }
 
-            public function print_mahasiswa()
+            public function print_arsip()
                 {
-                    $data['karyawan'] = $this->m_karyawan->tampil_data('tb_karyawan')->result() ;
-                    $this->load->view('adm/print/print_karyawan', $data);
+                    $data['arsip'] = $this->m_arsip->tampil_data('tb_arsip')->result() ;
+                    $this->load->view('adm/print/print_arsip', $data);
                 }
 
             public function search()
                 {
                     $keyword = $this->input->post('keyword') ;
-                    $data['karyawan']=$this->m_karyawan->get_keyword($keyword) ;
+                    $data['arsip']=$this->m_arsip->get_keyword($keyword) ;
 
                     $this->load->view('adm/templates/header');
                     $this->load->view('adm/templates/sidebar');
-                    $this->load->view('karyawan', $data);
+                    $this->load->view('arsip', $data);
                     $this->load->view('adm/templates/footer');
                 }
         }

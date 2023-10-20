@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Ewako | Data Karyawan</title>
-    <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>karyawan/dist/img/UT.png">
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>assets/dist/img/UT.png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Theme style -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>karyawan/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/adminlte.min.css">
 </head>
 <body>
     <center>
            <thead>
                 <tr>
-                    <td><img src="<?php echo base_url() ?>karyawan/dist/img/UT.png" alt="" class="brand-image  elevation-0" width="150px" height="150px"></td>
+                    <td><img src="<?php echo base_url() ?>assets/dist/img/UT.png" alt="" class="brand-image  elevation-0" width="150px" height="150px"></td>
                     <td>
                         <center>
                         <h1>LAPORAN DATA KARYAWAN</h1>

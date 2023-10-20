@@ -193,6 +193,11 @@
                                     <label>Tanggal mulai bekerja</label>
                                     <input type="date" name="tanggal_mulai_bekerja" class="form-control">
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Foto Karyawan</label>
+                                    <input type="file" name="foto" class="form-control">
+                                </div>
  
                                 <div class="modal-footer">
                                     <button type="RESET" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Reset</button>
