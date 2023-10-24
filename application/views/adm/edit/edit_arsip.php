@@ -51,6 +51,22 @@
                     <label>Lokasi Arsip</label>
                     <input type="text" name="lokasi_arsip" class="form-control" value="<?php echo $ass->lokasi_arsip ?>">
                 </div>
+
+                <div class="form-group">
+                    <label>keterangan</label>
+                    <select class="form-select" name="keterangan" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">dipinjam</option>
+                        <option value="2">tersedia</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label>tanggal_keluar_masuk</label>
+                    <input type="date" name="tanggal_keluar_masuk" class="form-control" value="<?php echo $ass->tanggal_keluar_masuk ?>">
+                </div>
+
             <br>
             <center>
                 <button type="submit" class="btn btn-sm btn-primary">SIMPAN</button>

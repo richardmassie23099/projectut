@@ -77,26 +77,30 @@
 
             }
             public function tambah_aksi(){
-                $no_dokumen       = $this->input->post('no_dokumen');
-                $jenis_dokumen    = $this->input->post('jenis_dokumen');
-                $tanggal_dokumen  = $this->input->post('tanggal_dokumen');
-                $cabang           = $this->input->post('cabang');
-                $status           = $this->input->post('status');
-                $type             = $this->input->post('type');
-                $kepada           = $this->input->post('kepada');
-                $keperluan        = $this->input->post('keperluan');
-                $lokasi_arsip     = $this->input->post('lokasi_arsip');
+                $no_dokumen            = $this->input->post('no_dokumen');
+                $jenis_dokumen         = $this->input->post('jenis_dokumen');
+                $tanggal_dokumen       = $this->input->post('tanggal_dokumen');
+                $cabang                = $this->input->post('cabang');
+                $status                = $this->input->post('status');
+                $type                  = $this->input->post('type');
+                $kepada                = $this->input->post('kepada');
+                $keperluan             = $this->input->post('keperluan');
+                $lokasi_arsip          = $this->input->post('lokasi_arsip');
+                $keterangan            = $this->input->post('keterangan');
+                $tanggal_keluar_masuk  = $this->input->post('tanggal_masuk_keluar');
 
                 $data = array(
-                    'no_dokumen'       => $no_dokumen,
-                    'jenis_dokumen'    => $jenis_dokumen,
-                    'tanggal_dokumen'  => $tanggal_dokumen,
-                    'cabang'           => $cabang,
-                    'status'           => $status,
-                    'type'             => $type,
-                    'kepada'           => $kepada,
-                    'keperluan'        => $keperluan,
-                    'lokasi_arsip'     => $lokasi_arsip,
+                    'no_dokumen'           => $no_dokumen,
+                    'jenis_dokumen'        => $jenis_dokumen,
+                    'tanggal_dokumen'      => $tanggal_dokumen,
+                    'cabang'               => $cabang,
+                    'status'               => $status,
+                    'type'                 => $type,
+                    'kepada'               => $kepada,
+                    'keperluan'            => $keperluan,
+                    'lokasi_arsip'         => $lokasi_arsip,
+                    'keterangan'           => $keterangan,
+                    'tanggal_keluar_masuk' => $lokasi_arsip,
                 );
 
                 $this->m_arsip->input_data($data,'tb_arsip');
@@ -129,27 +133,31 @@
 
             public function update()
                 {
-                    $id               = $this->input->post('id') ;
-                    $no_dokumen       = $this->input->post('no_dokumen');
-                    $jenis_dokumen    = $this->input->post('jenis_dokumen');
-                    $tanggal_dokumen  = $this->input->post('tanggal_dokumen');
-                    $cabang           = $this->input->post('cabang');
-                    $status           = $this->input->post('status');
-                    $type             = $this->input->post('type');
-                    $kepada           = $this->input->post('kepada');
-                    $keperluan        = $this->input->post('keperluan');
-                    $lokasi_arsip     = $this->input->post('lokasi_arsip');  
+                    $id                   = $this->input->post('id') ;
+                    $no_dokumen           = $this->input->post('no_dokumen');
+                    $jenis_dokumen        = $this->input->post('jenis_dokumen');
+                    $tanggal_dokumen      = $this->input->post('tanggal_dokumen');
+                    $cabang               = $this->input->post('cabang');
+                    $status               = $this->input->post('status');
+                    $type                 = $this->input->post('type');
+                    $kepada               = $this->input->post('kepada');
+                    $keperluan            = $this->input->post('keperluan');
+                    $lokasi_arsip         = $this->input->post('lokasi_arsip');  
+                    $keterangan           = $this->input->post('keterangan');  
+                    $tanggal_keluar_masuk = $this->input->post('tanggal_keluar_masuk');  
 
                     $data = array (
-                        'no_dokumen'      => $no_dokumen,
-                        'jenis_dokumen'   => $jenis_dokumen,
-                        'tanggal_dokumen' => $tanggal_dokumen,
-                        'cabang'          => $cabang,
-                        'status'          => $status,
-                        'type'            => $type,
-                        'kepada'          => $kepada,
-                        'keperluan'       => $keperluan,
-                        'lokasi_arsip'    => $lokasi_arsip,
+                        'no_dokumen'            => $no_dokumen,
+                        'jenis_dokumen'         => $jenis_dokumen,
+                        'tanggal_dokumen'       => $tanggal_dokumen,
+                        'cabang'                => $cabang,
+                        'status'                => $status,
+                        'type'                  => $type,
+                        'kepada'                => $kepada,
+                        'keperluan'             => $keperluan,
+                        'lokasi_arsip'          => $lokasi_arsip,
+                        'keterangan'            => $keterangan,
+                        'tanggal_keluar_masuk'  => $tanggal_keluar_masuk,
                     ) ;
 
                     $where = array (

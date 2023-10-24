@@ -49,6 +49,8 @@
                     <td><?php echo $detail_arsip->lokasi_arsip ?></td>
             </tr>
 
+
+
         </table><br>
         <center>
         <a href="<?php echo base_url('arsip/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>

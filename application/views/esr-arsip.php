@@ -55,6 +55,7 @@
                                                 <th class="text-center">TANGGAL DOKUMEN</th>
                                                 <th class="text-center">CABANG</th>
                                                 <th class="text-center">KEPADA</th>
+                                                <th class="text-center">KONDISI</th>
                                                 <th colspan="3" class="text-center">Action</th>
 
                                             </tr>
@@ -69,6 +70,8 @@
                                                     <td><?php echo $kry['tanggal_dokumen'] ?></td>
                                                     <td><?php echo $kry['cabang'] ?></td>
                                                     <td><?php echo $kry['kepada'] ?></td>
+                                                    <!-- <td><?php echo $kry['kondisi'] ?></td> -->
+                                                    <td><span class="btn btn-primary btn-sm">DIPINJAM</div></td>
                                                         <td><?php echo anchor('arsip/detail_arsip/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
                                                     <?php if ($_SESSION['hak_akses'] == 'ESR' or $_SESSION['hak_akses'] == 'A' ) { ?>
                                                         <td><?php echo anchor('arsip/edit_arsip/'.$kry['id'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
@@ -156,6 +159,22 @@
                                 <div class="form-group">
                                     <label>Lokasi Arsip</label>
                                     <input type="text" name="lokasi_arsip" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>keterangan</label>
+                                    <input type="text" name="keterangan" class="form-control">
+                                    <select class="form-select" name="keterangan" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">dipinjam</option>
+                                        <option value="2">tersedia</option>
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>tanggal_keluar_masuk</label>
+                                    <input type="date" name="tanggal_keluar_masuk" class="form-control">
                                 </div>
 
                                 <div class="modal-footer">
