@@ -43,6 +43,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label>File</label>
+                    <input type="file" name="file" class="form-control" value="<?php echo $ass->file ?>">
+                </div>
+
+                <div class="form-group">
                     <label>Keperluan</label>
                     <input type="text" name="keperluan" class="form-control" value="<?php echo $ass->keperluan ?>">
                 </div>

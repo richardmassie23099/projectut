@@ -35,7 +35,7 @@
                 $this->db->from('tb_karyawan') ;
                 $config['total_rows']   = $this->db->count_all_results() ;
                 $data['total_rows'] = $config['total_rows'] ;
-                $config['per_page']     = 20 ;
+                $config['per_page']     = 20000 ;
 
                 
                 // Styling

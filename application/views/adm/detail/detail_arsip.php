@@ -38,6 +38,11 @@
                 <th>Kepada/th>
                     <td><?php echo $detail_arsip->kepada ?></td>
             </tr>
+
+            <tr>
+                <th>File/th>
+                    <td><?php echo $detail_arsip->file ?></td>
+            </tr>
             
             <tr>
                 <th>Keperluan</th>

@@ -137,10 +137,10 @@
                                     <label>Departement</label>
                                     <select class="form-select" name="departement" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">ADM</option>
-                                        <option value="2">SVC</option>
-                                        <option value="3">PRT</option>
-                                        <option value="4">SOD-TSO</option>
+                                        <option value="ADM">ADM</option>
+                                        <option value="SVC">SVC</option>
+                                        <option value="PRT">PRT</option>
+                                        <option value="SOD-TSO">SOD-TSO</option>
                                         <!-- <option value="5">five</option> -->
                                     </select>
 
@@ -166,11 +166,10 @@
                                     <!-- <input type="text" name="status_keluarga" class="form-control"> -->
                                     <select class="form-select" name="status_keluarga" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">Menikah</option>
-                                        <option value="2">Belum menikah</option>
+                                        <option value="Menikah">Menikah</option>
+                                        <option value="Belum menikah">Belum menikah</option>
                                         <!-- <option value="3">Three</option> -->
                                     </select>
-
                                 </div>
 
                                 <div class="form-group">

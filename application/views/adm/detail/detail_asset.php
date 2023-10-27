@@ -69,6 +69,11 @@
                     <td><?php echo $detail_asset->keterangan ?></td>
             </tr>
 
+            <tr>
+                <th>Apload foto</th>
+                    <td><?php echo $detail_asset->apload_foto ?></td>
+            </tr>
+
         </table><br>
         <center>
         <a href="<?php echo base_url('asset/index') ?>" class="btn btn-sm btn-primary">KEMBALI</i></a></center><br>

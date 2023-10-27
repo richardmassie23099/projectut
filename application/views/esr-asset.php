@@ -165,8 +165,8 @@
                                     <label>Kondisi</label>
                                     <select class="form-select" name="kondisi" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">Baik</option>
-                                        <option value="2">Rusak</option>
+                                        <option value="Baik">Baik</option>
+                                        <option value="Rusak">Rusak</option>
                                     </select>
                                 </div>
 
@@ -174,8 +174,8 @@
                                     <label>utilisasi</label>
                                     <select class="form-select" name="utilisasi" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                 </div>
 
@@ -187,6 +187,11 @@
                                 <div class="form-group">
                                     <label>Keterangan</label>
                                     <input type="text" name="keterangan" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Apload foto</label>
+                                    <input type="file" name="apload_foto" class="form-control">
                                 </div>
 
                                 <div class="modal-footer">

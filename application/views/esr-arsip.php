@@ -55,6 +55,7 @@
                                                 <th class="text-center">TANGGAL DOKUMEN</th>
                                                 <th class="text-center">CABANG</th>
                                                 <th class="text-center">KEPADA</th>
+                                                <th class="text-center">FILE</th>
                                                 <th class="text-center">KONDISI</th>
                                                 <th colspan="3" class="text-center">Action</th>
 
@@ -70,6 +71,7 @@
                                                     <td><?php echo $kry['tanggal_dokumen'] ?></td>
                                                     <td><?php echo $kry['cabang'] ?></td>
                                                     <td><?php echo $kry['kepada'] ?></td>
+                                                    <td><?php echo $kry['file'] ?></td>
                                                     <!-- <td><?php echo $kry['kondisi'] ?></td> -->
                                                     <td><span class="btn btn-primary btn-sm">DIPINJAM</div></td>
                                                         <td><?php echo anchor('arsip/detail_arsip/'.$kry['id'], '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
@@ -152,6 +154,11 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>File</label>
+                                    <input type="file" name="file" class="form-control">
+                                </div>
+
+                                <div class="form-group">
                                     <label>Keperluan</label>
                                     <input type="text" name="keperluan" class="form-control">
                                 </div>
@@ -162,8 +169,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>keterangan</label>
-                                    <input type="text" name="keterangan" class="form-control">
+                                    <label>Keterangan</label>
                                     <select class="form-select" name="keterangan" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
                                         <option value="1">dipinjam</option>
@@ -173,7 +179,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>tanggal_keluar_masuk</label>
+                                    <label>Tanggal_keluar_masuk</label>
                                     <input type="date" name="tanggal_keluar_masuk" class="form-control">
                                 </div>
 

@@ -68,8 +68,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label>keterangan</label>
+                    <label>Keterangan</label>
                     <input type="text" name="keterangan" class="form-control" value="<?php echo $ass->keterangan ?>">
+                </div>
+
+                <div class="form-group">
+                    <label>Apload foto</label>
+                    <input type="file" name="apload_foto" class="form-control" value="<?php echo $ass->apload_foto ?>">
                 </div>
             <br>
             <center>
